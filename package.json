@@ -4,8 +4,15 @@
   "description": "Portfolio for Kenyata Barnes",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next"
   },
   "author": "Tony Pettigrew",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "next": "^7.0.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "tachyons": "^4.11.1"
+  }
 }
