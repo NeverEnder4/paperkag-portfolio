@@ -2,18 +2,22 @@ const Contact = () => {
   return (
     <div className="contact">
       <div className="contact-container">
-        <a href="#" className="social-link">
+        <a href="tel:12069725004" className="social-link">
           <img
             src="/static/icons/phone-white.svg"
             className="phone-icon icon"
           />
-          <span>555-555-5555</span>
+          <span>206-972-5004</span>
         </a>
-        <a href="#" className="social-link">
+        <a href="mailto:paperkag@gmail.com?Subject=YO!" className="social-link">
           <img src="/static/icons/mail-white.svg" className="mail-icon icon" />
           <span>paperkag@gmail.com</span>
         </a>
-        <a href="#" className="social-link">
+        <a
+          href="https://www.instagram.com/mf.kag"
+          target="_blank"
+          className="social-link"
+        >
           <img
             src="/static/icons/insta-white.svg"
             className="instagram-icon icon"

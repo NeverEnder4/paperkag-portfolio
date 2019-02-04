@@ -2,7 +2,7 @@ import 'tachyons';
 
 const Bio = () => {
   return (
-    <div className="bio">
+    <article className="bio">
       <div className="bio-content">
         <img src="/static/street-art-4.jpeg" className="avatar " alt="avatar" />
         <h1 className="name fw6 ">Kenyatta Barnette</h1>
@@ -75,7 +75,7 @@ const Bio = () => {
           }
         }
       `}</style>
-    </div>
+    </article>
   );
 };
 

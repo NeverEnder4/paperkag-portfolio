@@ -11,7 +11,7 @@ class VideoPlayer extends React.Component {
       status: 'pause',
       showButton: true,
       video: 0,
-      volume: 40,
+      volume: 30,
     };
   }
 

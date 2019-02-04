@@ -3,8 +3,8 @@ import Link from 'next/link';
 const Header = () => {
   return (
     <header className="header">
-      <Link href="/index">
-        <a href="#" className="logo-link">
+      <Link href="/" as="/">
+        <a className="logo-link">
           <div className="logo-text">
             <span className="brand-name">PAPERKAG</span>
             <span className="artist-name">by Kenyatta Furious Barnette</span>
@@ -84,6 +84,11 @@ const Header = () => {
 
           .logo-link img {
             height: 6rem;
+          }
+          @media (min-width: 1025px) {
+            .header {
+              justify-content: flex-start;
+            }
           }
         }
       `}</style>
