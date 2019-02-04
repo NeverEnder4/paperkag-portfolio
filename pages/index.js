@@ -1,16 +1,24 @@
-import HeadTag from '../components/HeadTag';
-import 'tachyons';
+import HeadTag from '../components/head-tag/HeadTag';
+import Header from '../components/header/Header';
+import Menu from '../components/menu/Menu';
+import Bio from '../components/bio/Bio';
+import Contact from '../components/contact/Contact';
+import Footer from '../components/footer/Footer';
+import InfoWrapper from '../components/info-wrapper/InfoWrapper';
+
+import 'normalize.css';
 
 const index = () => {
   return (
-    <div>
+    <div className="index">
       <HeadTag />
-      <h1>paperKAG Portfolio</h1>
-      <style jsx>{`
-        h1 {
-          font-family: 'Baloo Thambi', 'sans-serif';
-        }
-      `}</style>
+      <Header />
+      <Menu />
+      <InfoWrapper>
+        <Bio />
+        <Contact />
+        <Footer />
+      </InfoWrapper>
     </div>
   );
 };

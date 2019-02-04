@@ -1,16 +1,8 @@
 {
-  "./noop": [
+  "./Menu.css": [
     {
-      "id": "./node_modules/next/dist/client/noop.js",
-      "name": "./node_modules/next/dist/client/noop.js",
-      "file": "static/chunks/0.js",
-      "publicPath": "static/chunks/0.js"
-    }
-  ],
-  "tachyons": [
-    {
-      "id": "./node_modules/tachyons/css/tachyons.css",
-      "name": "./node_modules/tachyons/css/tachyons.css",
+      "id": "./components/menu/Menu.css",
+      "name": "./components/menu/Menu.css",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     }
@@ -21,6 +13,42 @@
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 5,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 6,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    }
+  ],
+  "tachyons": [
+    {
+      "id": "./node_modules/tachyons/css/tachyons.css",
+      "name": "./node_modules/tachyons/css/tachyons.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    }
+  ],
+  "normalize.css": [
+    {
+      "id": "./node_modules/normalize.css/normalize.css",
+      "name": "./node_modules/normalize.css/normalize.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    }
+  ],
+  "./noop": [
+    {
+      "id": "./node_modules/next/dist/client/noop.js",
+      "name": "./node_modules/next/dist/client/noop.js",
+      "file": "static/chunks/0.js",
+      "publicPath": "static/chunks/0.js"
     }
   ]
 }

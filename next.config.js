@@ -1,2 +1,13 @@
 const withCSS = require('@zeit/next-css');
-module.exports = withCSS();
+const withImages = require('next-images');
+const withFonts = require('next-fonts');
+
+module.exports = withCSS(
+  withFonts(
+    withImages({
+      webpack(config, options) {
+        return config;
+      },
+    }),
+  ),
+);
