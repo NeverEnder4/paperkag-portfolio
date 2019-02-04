@@ -1,5 +1,5 @@
-import HeadTag from '../components/head-tag/HeadTag';
-import Header from '../components/header/Header';
+import HeadTag from '../components/nav-header/head-tag/HeadTag';
+import Header from '../components/nav-header/header/Header';
 import Menu from '../components/menu/Menu';
 import Bio from '../components/bio/Bio';
 import Contact from '../components/contact/Contact';

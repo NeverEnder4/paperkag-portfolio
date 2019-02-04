@@ -1,5 +1,3 @@
-import 'tachyons';
-
 const Bio = () => {
   return (
     <article className="bio">
@@ -33,12 +31,17 @@ const Bio = () => {
 
         .bio .location {
           font-size: 0.875rem;
+          letter-spacing: 0.1em;
+          font-weight: 200;
+          text-transform: uppercase;
         }
 
         .bio p {
           max-width: 30em;
           font-size: 1rem;
           line-height: 1.4;
+          margin: 1rem auto;
+          padding: 0 1rem;
         }
 
         .avatar {

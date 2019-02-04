@@ -17,6 +17,18 @@
       "static/chunks/styles.js",
       "static/runtime/main.js"
     ],
+    "/art": [
+      "static/runtime/webpack.js",
+      "static/css/styles.chunk.css",
+      "static/chunks/styles.js",
+      "static/runtime/main.js"
+    ],
+    "/modeling": [
+      "static/runtime/webpack.js",
+      "static/css/styles.chunk.css",
+      "static/chunks/styles.js",
+      "static/runtime/main.js"
+    ],
     "/cinema": [
       "static/runtime/webpack.js",
       "static/css/styles.chunk.css",

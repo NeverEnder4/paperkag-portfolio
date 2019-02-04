@@ -9,7 +9,7 @@
   ],
   "undefined": [
     {
-      "id": 4,
+      "id": 7,
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
@@ -17,20 +17,6 @@
     {
       "id": 5,
       "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 6,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    }
-  ],
-  "tachyons": [
-    {
-      "id": "./node_modules/tachyons/css/tachyons.css",
-      "name": "./node_modules/tachyons/css/tachyons.css",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     }

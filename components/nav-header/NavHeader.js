@@ -1,6 +1,6 @@
-import SmallNav from '../small-nav/SmallNav';
-import Header from '../header/Header';
-import HeadTag from '../head-tag/HeadTag';
+import SmallNav from './small-nav/SmallNav';
+import Header from './header/Header';
+import HeadTag from './head-tag/HeadTag';
 
 const NavHeader = ({ pageList, currPage }) => {
   return (

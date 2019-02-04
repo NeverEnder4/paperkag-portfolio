@@ -9,8 +9,8 @@ const SmallNav = ({ currPage, pages }) => {
           const divider =
             index < pages.length - 1 ? <li className="nav-item">|</li> : null;
           return (
-            <React.Fragment>
-              <Link href={page.path}>
+            <React.Fragment key={page.name}>
+              <Link prefetch href={page.path}>
                 <a>
                   <li className={`nav-item ${currPageClass}`}>{page.name}</li>
                 </a>
@@ -33,23 +33,24 @@ const SmallNav = ({ currPage, pages }) => {
           .small-nav a {
             text-decoration: none;
             text-transform: uppercase;
+            transition: opacity 100ms ease-out;
           }
 
           .nav-item {
             font-family: 'Baloo Thambi';
             font-size: 1.25rem;
             color: #1d1d1d;
-            transition: opacity 100ms ease-out;
           }
 
-          .nav-item:hover,
-          .nav-item:focus {
+          .small-nav a:hover,
+          .small-nav a:focus {
             opacity: 0.5;
           }
 
           .nav-item.current-page {
             opacity: 0.5;
           }
+
           @media (min-width: 600px) {
             .nav-item {
               font-size: 2.3rem;
