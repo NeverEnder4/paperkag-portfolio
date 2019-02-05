@@ -137,6 +137,7 @@ class VideoPlayer extends React.Component {
           .container {
             max-width: 1200px;
             margin: 0 auto;
+            margin-bottom: 6rem;
           }
           .video-display {
             position: relative;

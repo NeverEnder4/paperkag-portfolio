@@ -10,14 +10,15 @@ const Banner = () => {
       <div className="banner-content">
         <h1 className="banner-title">Vogue Italia</h1>
         <p className="banner-description">
-          YO! Catch me in Vogue Italia photographer, Anastasia Bigdan's{` `}
+          YO! Catch me in Vogue Italia. Photographer, Anastasia Bigdan, shot me
+          for her{` `}
           <a
             href="https://www.vogue.it/photovogue/portfolio/?id=148007"
             target="_blank"
           >
             portfolio
           </a>
-          . She stopped me in Seattle for an imprompu shoot.
+          .
         </p>
       </div>
       <style jsx>{`
@@ -25,7 +26,7 @@ const Banner = () => {
           background: rgba(0, 0, 0, 0.9);
           display: flex;
           align-items: flex-start;
-          padding: 1rem;
+          padding: 0.8rem;
           margin-top: 0.5rem;
         }
 

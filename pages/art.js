@@ -23,7 +23,7 @@ const art = ({ currPage }) => {
         <div className="content-wrapper">
           <ImageDisplay
             imagesArray={streetArtImages}
-            displayName="Night Life/Street Art"
+            displayName="Street Art"
             description="Captiol Hill Seattle"
           />
           <ImageDisplay

@@ -26,7 +26,7 @@ const SmallNav = ({ currPage, pages }) => {
             padding: 1rem 0 1rem 0;
             display: flex;
             justify-content: space-around;
-            width: 60vw;
+            width: 75vw;
             margin: 0 auto;
           }
 
