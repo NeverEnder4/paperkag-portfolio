@@ -7,17 +7,10 @@ import Footer from '../components/footer/Footer';
 import InfoWrapper from '../components/info-wrapper/InfoWrapper';
 import PageWrapper from '../components/page-wrapper/PageWrapper';
 
-import 'normalize.css';
-const modelingImages = [
-  { path: '/static/kag-model.jpg' },
-  { path: '/static/kag-model-2.jpg' },
-];
+import pageList from '../seed-data/pages';
+import { modelingImages } from '../seed-data/images';
 
-const pageList = [
-  { name: 'art', path: '/art' },
-  { name: 'cinema', path: '/cinema' },
-  { name: 'modeling', path: '/modeling' },
-];
+import 'normalize.css';
 
 const modeling = ({ currPage }) => {
   return (

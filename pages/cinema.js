@@ -6,30 +6,10 @@ import Footer from '../components/footer/Footer';
 import InfoWrapper from '../components/info-wrapper/InfoWrapper';
 import PageWrapper from '../components/page-wrapper/PageWrapper';
 
+import pageList from '../seed-data/pages';
+import videos from '../seed-data/videos';
+
 import 'normalize.css';
-
-const videos = [
-  {
-    src: '/static/videos/yo!-skate-opt.mp4',
-    type: 'video/mp4',
-    title: 'YO! MAN',
-    artist: 'Kenyatta Barnette',
-    genre: 'Skate',
-  },
-  {
-    src: '/static/videos/yo-ep1-opt.mp4',
-    type: 'video/mp4',
-    title: 'YO! Episode 1',
-    artist: 'Kenyatta Barnette',
-    genre: 'Animation',
-  },
-];
-
-const pageList = [
-  { name: 'art', path: '/art' },
-  { name: 'cinema', path: '/cinema' },
-  { name: 'modeling', path: '/modeling' },
-];
 
 const cinema = ({ currPage }) => {
   return (

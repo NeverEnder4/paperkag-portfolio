@@ -1,19 +1,23 @@
 const Banner = () => {
   return (
     <div className="banner">
-      <img className="banner-img" src="/static/vogue-logo.jpg" />
+      <a
+        href="https://www.vogue.it/photovogue/portfolio/?id=148007"
+        target="_blank"
+      >
+        <img className="banner-img" src="/static/vogue-logo.jpg" />
+      </a>
       <div className="banner-content">
         <h1 className="banner-title">Vogue Italia</h1>
         <p className="banner-description">
-          Vogue Italia photographer Anastasia Bigdan stopped me in Seattle and
-          snapped some photos for her{` `}
+          YO! Catch me in Vogue Italia photographer, Anastasia Bigdan's{` `}
           <a
             href="https://www.vogue.it/photovogue/portfolio/?id=148007"
             target="_blank"
           >
             portfolio
           </a>
-          .
+          . She stopped me in Seattle for an imprompu shoot.
         </p>
       </div>
       <style jsx>{`

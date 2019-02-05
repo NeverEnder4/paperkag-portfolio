@@ -24,12 +24,7 @@ const index = () => {
           <Footer />
         </InfoWrapper>
       </div>
-      <style jsx>{`
-        .header-position {
-          display: inline;
-          margin: 0 auto;
-        }
-      `}</style>
+
       <style jsx global>{`
         body {
           background-color: #ffffff;

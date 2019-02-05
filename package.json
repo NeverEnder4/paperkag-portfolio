@@ -4,7 +4,9 @@
   "description": "Portfolio for Kenyata Barnes",
   "main": "index.js",
   "scripts": {
-    "dev": "next"
+    "dev": "next",
+    "build": "next build && next export -o dist",
+    "deploy": "now"
   },
   "author": "Tony Pettigrew",
   "license": "ISC",

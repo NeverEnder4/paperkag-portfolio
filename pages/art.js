@@ -6,30 +6,14 @@ import Footer from '../components/footer/Footer';
 import InfoWrapper from '../components/info-wrapper/InfoWrapper';
 import PageWrapper from '../components/page-wrapper/PageWrapper';
 
+import pageList from '../seed-data/pages';
+import {
+  streetArtImages,
+  paintingsImages,
+  skatingImages,
+} from '../seed-data/images';
+
 import 'normalize.css';
-
-const streetArtImages = [
-  { path: '/static/street-art.jpeg' },
-  { path: '/static/street-art-2.jpg' },
-  { path: '/static/street-art-3.jpeg' },
-  { path: '/static/street-art-4.jpeg' },
-];
-
-const paintingsImages = [
-  { path: '/static/paintings.jpg' },
-  { path: '/static/paintings-2.jpg' },
-];
-
-const skatingImages = [
-  { path: '/static/skating.jpeg' },
-  { path: '/static/skating-2.jpeg' },
-];
-
-const pageList = [
-  { name: 'art', path: '/art' },
-  { name: 'cinema', path: '/cinema' },
-  { name: 'modeling', path: '/modeling' },
-];
 
 const art = ({ currPage }) => {
   return (
