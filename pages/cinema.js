@@ -6,8 +6,8 @@ import Footer from '../components/footer/Footer';
 import InfoWrapper from '../components/info-wrapper/InfoWrapper';
 import PageWrapper from '../components/page-wrapper/PageWrapper';
 
-import pageList from '../seed-data/pages';
-import videos from '../seed-data/videos';
+import pageList from '../static/seed-data/pages';
+import videos from '../static/seed-data/videos';
 
 import 'normalize.css';
 

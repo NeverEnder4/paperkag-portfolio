@@ -1,9 +1,6 @@
 import Link from 'next/link';
 
 import './Menu.css';
-import bgImgArt from '../../static/paintings.jpg';
-import bgImgModel from '../../static/kag-model.jpg';
-import bgImgCinema from '../../static/skating-2.jpeg';
 
 const Menu = () => {
   return (
@@ -56,19 +53,19 @@ const Menu = () => {
           }
 
           .menu-item-container.art {
-            background-image: url(${bgImgArt});
+            background-image: url('https://apettigrew.imgix.net/static/paintings.jpg');
             background-size: cover;
             background-position: center;
           }
 
           .menu-item-container.cinema {
-            background-image: url(${bgImgCinema});
+            background-image: url('https://apettigrew.imgix.net/static/skating-2.jpeg');
             background-size: cover;
             background-position: 50% 80%;
           }
 
           .menu-item-container.model {
-            background-image: url(${bgImgModel});
+            background-image: url('https://apettigrew.imgix.net/static/kag-model.jpg');
             background-size: cover;
             background-position: 50% 15%;
           }

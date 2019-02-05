@@ -2,9 +2,13 @@ const Bio = () => {
   return (
     <article className="bio">
       <div className="bio-content">
-        <img src="/static/street-art-4.jpeg" className="avatar " alt="avatar" />
-        <h1 className="name fw6 ">Kenyatta Barnette</h1>
-        <h2 className="location fw2 ttu tracked">Los Angeles</h2>
+        <img
+          src="https://apettigrew.imgix.net/static/street-art-4.jpeg"
+          className="avatar "
+          alt="avatar"
+        />
+        <h1 className="name">Kenyatta Barnette</h1>
+        <h2 className="location">Los Angeles</h2>
         <p className="center ph3">
           Lorem ipsum dolor sit amet consectetur ading elit. Unde, totam asci.
           Facilis voluptas porro eos lium enim nihil impedit dicta odit tempora,

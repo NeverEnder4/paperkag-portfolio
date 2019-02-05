@@ -6,12 +6,12 @@ import Footer from '../components/footer/Footer';
 import InfoWrapper from '../components/info-wrapper/InfoWrapper';
 import PageWrapper from '../components/page-wrapper/PageWrapper';
 
-import pageList from '../seed-data/pages';
+import pageList from '../static/seed-data/pages';
 import {
   streetArtImages,
   paintingsImages,
   skatingImages,
-} from '../seed-data/images';
+} from '../static/seed-data/images';
 
 import 'normalize.css';
 

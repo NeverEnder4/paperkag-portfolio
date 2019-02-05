@@ -9,7 +9,7 @@ const Header = () => {
             <span className="brand-name">PAPERKAG</span>
             <span className="artist-name">by Kenyatta Furious Barnette</span>
           </div>
-          <img src="/static/kag-logo.png" />
+          <img src="https://apettigrew.imgix.net/static/kag-logo.png" />
         </a>
       </Link>
 

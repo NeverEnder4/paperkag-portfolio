@@ -1,8 +1,8 @@
 {
-  "normalize.css": [
+  "./Menu.css": [
     {
-      "id": "./node_modules/normalize.css/normalize.css",
-      "name": "./node_modules/normalize.css/normalize.css",
+      "id": "./components/menu/Menu.css",
+      "name": "./components/menu/Menu.css",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     }
@@ -11,6 +11,20 @@
     {
       "id": 4,
       "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 5,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    }
+  ],
+  "normalize.css": [
+    {
+      "id": "./node_modules/normalize.css/normalize.css",
+      "name": "./node_modules/normalize.css/normalize.css",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     }
