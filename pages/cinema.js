@@ -10,7 +10,7 @@ import 'normalize.css';
 
 const videos = [
   {
-    src: '/static/videos/mr-rag.mp4',
+    src: '/static/videos/yo!-skate-opt.mp4',
     type: 'video/mp4',
     title: 'YO! MAN',
     artist: 'Kenyatta Barnette',

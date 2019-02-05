@@ -1,4 +1,6 @@
 import NavHeader from '../components/nav-header/NavHeader';
+import Banner from '../components/banner/Banner';
+import ImageDisplay from '../components/image-display/ImageDisplay';
 import Bio from '../components/bio/Bio';
 import Contact from '../components/contact/Contact';
 import Footer from '../components/footer/Footer';
@@ -6,6 +8,10 @@ import InfoWrapper from '../components/info-wrapper/InfoWrapper';
 import PageWrapper from '../components/page-wrapper/PageWrapper';
 
 import 'normalize.css';
+const modelingImages = [
+  { path: '/static/kag-model.jpg' },
+  { path: '/static/kag-model-2.jpg' },
+];
 
 const pageList = [
   { name: 'art', path: '/art' },
@@ -19,7 +25,12 @@ const modeling = ({ currPage }) => {
       <NavHeader pageList={pageList} currPage={currPage} />
       <main>
         <div className="content-wrapper">
-          <h1>MODELING PAGE</h1>
+          <Banner />
+          <ImageDisplay
+            imagesArray={modelingImages}
+            displayName="Photo Shoots"
+            description="Capitol Hill"
+          />
         </div>
       </main>
       <InfoWrapper>

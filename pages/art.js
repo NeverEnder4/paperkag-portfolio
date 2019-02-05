@@ -20,6 +20,11 @@ const paintingsImages = [
   { path: '/static/paintings-2.jpg' },
 ];
 
+const skatingImages = [
+  { path: '/static/skating.jpeg' },
+  { path: '/static/skating-2.jpeg' },
+];
+
 const pageList = [
   { name: 'art', path: '/art' },
   { name: 'cinema', path: '/cinema' },
@@ -34,9 +39,18 @@ const art = ({ currPage }) => {
         <div className="content-wrapper">
           <ImageDisplay
             imagesArray={streetArtImages}
-            displayName="Street Art"
+            displayName="Night Life/Street Art"
+            description="Captiol Hill Seattle"
           />
-          <ImageDisplay imagesArray={paintingsImages} displayName="Paintings" />
+          <ImageDisplay
+            imagesArray={paintingsImages}
+            displayName="Paintings"
+            description="30x40 (2018)"
+          />
+          <ImageDisplay
+            imagesArray={skatingImages}
+            displayName="Skateboarding"
+          />
         </div>
       </main>
       <InfoWrapper>
