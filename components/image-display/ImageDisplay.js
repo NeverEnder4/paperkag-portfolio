@@ -12,7 +12,7 @@ const ImageDisplay = ({ imagesArray, displayName, description }) => {
       </ul>
       <style jsx>{`
         .display-container {
-          padding: 0 10px 2rem 10px;
+          padding: 0 10px 3rem 10px;
           max-width: 1200px;
           margin: 0 auto;
           text-align: center;
@@ -43,8 +43,9 @@ const ImageDisplay = ({ imagesArray, displayName, description }) => {
 
         .display-name {
           font-family: 'Baloo Thambi';
-          margin: 1rem 0 0 0;
+          margin: 0.3rem 0 0 0;
           text-transform: uppercase;
+          font-size: 1.5rem;
         }
 
         .display-description {
@@ -54,14 +55,24 @@ const ImageDisplay = ({ imagesArray, displayName, description }) => {
           font-weight: 200;
           letter-spacing: 0.1em;
           text-transform: uppercase;
+          font-size: 1rem;
+        }
+
+        @media (min-width: 600px) {
+          .display-name {
+            font-size: 1.875rem;
+          }
+          .display-description {
+            font-size: 1.25rem;
+          }
         }
         @media (min-width: 1025px) {
           .display-container {
             text-align: left;
           }
-          .display-genre {
+          .display-name {
             margin: 2rem 0 0 0;
-            font-size: 3rem;
+            font-size: 2.25rem;
           }
 
           .image-gallery {

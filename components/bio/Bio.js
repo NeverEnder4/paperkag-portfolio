@@ -42,10 +42,11 @@ const Bio = () => {
 
         .bio p {
           max-width: 30em;
-          font-size: 1rem;
+          font-size: 0.875rem;
           line-height: 1.4;
           margin: 1rem auto;
           padding: 0 1rem;
+          letter-spacing: 0.3px;
         }
 
         .avatar {

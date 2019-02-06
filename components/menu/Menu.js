@@ -35,6 +35,8 @@ const Menu = () => {
             width: 100%;
             padding: 10px;
             box-sizing: border-box;
+            margin-bottom: 6rem;
+            margin-top: -4px;
           }
           .menu-item-container {
             backface-visibility: hidden;
@@ -90,6 +92,7 @@ const Menu = () => {
               justify-content: space-between;
               padding: 5vh 10px;
               box-sizing: border-box;
+              margin-top: -20px;
             }
 
             .menu-item-container {

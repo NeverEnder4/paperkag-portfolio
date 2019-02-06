@@ -9,9 +9,11 @@ class VideoPlayer extends React.Component {
     this.state = {
       muted: false,
       status: 'pause',
-      showButton: true,
+      showButton: false,
       video: 0,
       volume: 30,
+      loading: true,
+      hoverClass: true,
     };
   }
 
@@ -21,7 +23,15 @@ class VideoPlayer extends React.Component {
 
   onPlayHandler = () => {
     this.videoElementRef.play();
-    this.setState({ status: 'play', showButton: false });
+    this.setState({ status: 'play', showButton: false, hoverClass: false });
+  };
+
+  onNoLongerPauseHandler = () => {
+    this.setState({ hoverClass: false });
+  };
+
+  onMouseOverHandler = () => {
+    this.setState({ hoverClass: true });
   };
 
   onPauseHandler = () => {
@@ -48,30 +58,56 @@ class VideoPlayer extends React.Component {
   onVideoEndHandler = () => {
     this.videoElementRef.pause();
     this.videoElementRef.currentTime = 0;
-    this.setState({ status: 'pause', showButton: true });
+    this.setState({ status: 'pause', showButton: true, hoverClass: true });
+  };
+
+  onCanPlayHandler = () => {
+    setTimeout(() => {
+      this.setState({ loading: false, showButton: true });
+    }, 1500);
   };
 
   onSelectTrackHandler = video => {
-    this.setState({ video: video, status: 'pause', showButton: true });
+    this.setState({
+      video: video,
+      status: 'pause',
+      loading: true,
+    });
     this.videoElementRef.load();
   };
 
   onSliderChange = rangeValue => {
     const volume = (this.state.volume / 100).toFixed(2);
-    console.log(volume);
     this.setState({ volume: rangeValue.value });
     this.videoElementRef.volume = volume;
   };
 
   render() {
     const { videos } = this.props;
-    const { status, showButton, video, volume, muted } = this.state;
+    const {
+      status,
+      showButton,
+      video,
+      volume,
+      muted,
+      hoverClass,
+      loading,
+    } = this.state;
     const showButtonClass = showButton ? 'show-button' : '';
+    const canHoverButton = hoverClass ? 'scale(1)' : 'scale(0)';
+    const loadingScreen = loading ? (
+      <div className="loading-screen">
+        <img src="https://apettigrew.imgix.net/static/kag-logo.png" />
+      </div>
+    ) : null;
 
     return (
       <div className="container">
-        <div className="video-display">
+        <div className="video-display" onMouseOver={this.onMouseOverHandler}>
+          {loadingScreen}
           <video
+            onPlay={this.onNoLongerPauseHandler}
+            onCanPlay={this.onCanPlayHandler}
             onEnded={this.onVideoEndHandler}
             ref={element => (this.videoElementRef = element)}
             className="video-player"
@@ -142,6 +178,7 @@ class VideoPlayer extends React.Component {
           .video-display {
             position: relative;
           }
+
           .video-player {
             width: 100%;
             display: block;
@@ -168,8 +205,8 @@ class VideoPlayer extends React.Component {
             outline: none;
           }
 
-          .play-controls:hover .center-button {
-            transform: scale(1);
+          .video-display:hover .center-button {
+            transform: ${canHoverButton};
           }
 
           .play-controls .show-button {
@@ -217,40 +254,85 @@ class VideoPlayer extends React.Component {
 
           .media-controls {
             display: flex;
-            width: 40%;
+            flex-direction: column;
+            align-items: flex-end;
+            width: 5rem;
+            height: 3rem;
             position: absolute;
-            bottom: -5px;
-            right: 5px;
-          }
-
-          .media-controls .small-button {
-            width: 2.5rem;
-            opacity: 0.5;
+            right: 0;
+            opacity: 0.35;
+            bottom: 0;
+            right: 10px;
             transition: opacity 300ms ease-out;
           }
 
-          .media-controls:hover .small-button {
+          .media-controls .small-button {
+            position: relative;
+            left: 8px;
+            top: 15px;
+            width: 2.5rem;
+          }
+
+          .media-controls:hover {
             opacity: 1;
           }
 
           @media (min-width: 600px) {
             .track {
-              font-size: 1.5rem;
-            }
-
-            .media-controls .small-button {
-              width: 4rem;
+              font-size: 1.25rem;
             }
 
             .media-controls {
-              display: flex;
-              width: 20%;
-              position: absolute;
-              bottom: -10px;
-              right: 10px;
+              right: 20px;
+              bottom: 20px;
+              width: 7rem;
+            }
+
+            .media-controls .small-button {
+              width: 3.5rem;
             }
           }
         `}</style>
+        <style jsx global>
+          {`
+            .loading-screen {
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              left: 0;
+              top: 0;
+              background: rgba(0, 0, 0, 0.8);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              z-index: 100;
+            }
+
+            .loading-screen img {
+              width: 4rem;
+              perspective: 1000px;
+              animation: spin 2s infinite alternate ease-in-out;
+            }
+
+            @keyframes spin {
+              0% {
+                transform: rotate(0);
+              }
+              50% {
+                transform: rotate(180deg);
+              }
+              100% {
+                transform: rotate(360deg);
+              }
+            }
+
+            @media (min-width: 600px) {
+              .loading-screen img {
+                width: 7rem;
+              }
+            }
+          `}
+        </style>
       </div>
     );
   }

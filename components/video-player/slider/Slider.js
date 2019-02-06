@@ -18,6 +18,7 @@ class Slider extends React.Component {
       <React.Fragment>
         <input
           className="slider"
+          orient="vertical"
           ref={element => (this.sliderElementRef = element)}
           min="0"
           max="100"
@@ -54,6 +55,11 @@ class Slider extends React.Component {
             color: transparent;
           }
 
+          input[type='range'] {
+            transform-origin: 50% 50%;
+            transform: rotate(-90deg);
+          }
+
           /*Style thumb*/
           input[type='range']::-webkit-slider-thumb {
             -webkit-appearance: none;
@@ -77,7 +83,8 @@ class Slider extends React.Component {
             height: 5px;
             cursor: pointer;
             background: #ffffff;
-            opacity: 0.2;
+            opacity: 0.8;
+
             transition: opacity 300ms ease-out;
           }
           input[type='range']:hover::-webkit-slider-runnable-track {
