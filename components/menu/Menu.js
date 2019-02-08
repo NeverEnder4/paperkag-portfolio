@@ -55,19 +55,19 @@ const Menu = () => {
           }
 
           .menu-item-container.art {
-            background-image: url('https://apettigrew.imgix.net/static/paintings.jpg');
+            background-image: url('https://apettigrew.imgix.net/static/paintings.jpg?auto=format&q=35&w=600');
             background-size: cover;
             background-position: center;
           }
 
           .menu-item-container.cinema {
-            background-image: url('https://apettigrew.imgix.net/static/skating-2.jpeg');
+            background-image: url('https://apettigrew.imgix.net/static/skating-2.jpeg?auto=format&q=35&w=600');
             background-size: cover;
             background-position: 50% 80%;
           }
 
           .menu-item-container.model {
-            background-image: url('https://apettigrew.imgix.net/static/kag-model.jpg');
+            background-image: url('https://apettigrew.imgix.net/static/kag-model.jpg?auto=format&q=35&w=600');
             background-size: cover;
             background-position: 50% 15%;
           }

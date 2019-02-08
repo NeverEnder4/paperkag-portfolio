@@ -291,6 +291,16 @@ class VideoPlayer extends React.Component {
             .media-controls .small-button {
               width: 3.5rem;
             }
+            @media (min-width: 700px) {
+              .container {
+                margin-bottom: 15rem;
+              }
+            }
+            @media (min-width: 1200px) {
+              .container {
+                margin-bottom: 20rem;
+              }
+            }
           }
         `}</style>
         <style jsx global>
@@ -301,7 +311,11 @@ class VideoPlayer extends React.Component {
               height: 100%;
               left: 0;
               top: 0;
-              background: rgba(0, 0, 0, 0.8);
+              background-image: radial-gradient(
+                circle farthest-corner at 10% 20%,
+                rgba(0, 0, 0, 1) 0%,
+                rgba(64, 64, 64, 1) 90.2%
+              );
               display: flex;
               justify-content: center;
               align-items: center;
