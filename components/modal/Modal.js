@@ -1,9 +1,12 @@
 const Modal = ({ onModalClick, displayed, imgSrc, imgAlt }) => {
   const showModalClass = displayed ? 'show-modal' : '';
+  const preventLinkDefault = e => {
+    e.preventDefault();
+  };
   return (
     <div onClick={onModalClick} className={`modal ${showModalClass}`}>
       <div className="img-container">
-        <a className="close-link" href="#">
+        <a className="close-link" href="#" onClick={preventLinkDefault}>
           <img src="/static/icons/close.svg" alt="close modal" />
         </a>
         <img src={imgSrc} alt={imgAlt} className="modal-img" />
@@ -48,13 +51,19 @@ const Modal = ({ onModalClick, displayed, imgSrc, imgAlt }) => {
         .close-link img {
           width: 100%;
           opacity: 0;
-          transition: all 100ms ease-in-out;
+          transition: all 100ms ease-out;
         }
 
         .modal.show-modal .close-link img {
-          opacity: 1;
+          opacity: 0.7;
           transform: rotate(720deg);
           transition: all 600ms ease-in-out;
+        }
+
+        .modal.show-modal .close-link img:hover,
+        .modal.show-modal .close-link img:focus {
+          opacity: 1;
+          transition: opacity 100ms ease-out;
         }
 
         .modal-img {

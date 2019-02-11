@@ -67,6 +67,7 @@ class ImageDisplay extends React.Component {
 
             cursor: pointer;
             opacity: 0;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.6);
           }
 
           .image-gallery img.show-images {
@@ -74,9 +75,8 @@ class ImageDisplay extends React.Component {
           }
 
           .image-gallery img:hover {
-            opacity: 0.85;
-            transform: translateY(-3px);
-            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 2px 5px 3px rgba(0, 0, 0, 0.3);
           }
 
           .display-name {
