@@ -1,6 +1,6 @@
 class ImageDisplay extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       imagesRendered: false,
       imagesLoaded: false,
@@ -15,24 +15,27 @@ class ImageDisplay extends React.Component {
   };
   render() {
     const { imagesRendered, imagesLoaded } = this.state;
-    const { imagesArray, displayName, description } = this.props;
+    const { imagesArray, displayName, description, onImgClick } = this.props;
     const showImagesClass = imagesRendered && imagesLoaded ? 'show-images' : '';
     return (
-      <div className="display-container">
-        <h1 className="display-name">{displayName}</h1>
-        <h2 className="display-description">{description}</h2>
-        <ul className="image-gallery">
-          {imagesArray.map((image, index) => (
-            <li key={index}>
-              <img
-                onLoad={this.onImgLoadHandler}
-                className={`image-item ${showImagesClass}`}
-                src={image.path}
-                alt={image.alt}
-              />
-            </li>
-          ))}
-        </ul>
+      <React.Fragment>
+        <div className="display-container">
+          <h1 className="display-name">{displayName}</h1>
+          <h2 className="display-description">{description}</h2>
+          <ul className="image-gallery">
+            {imagesArray.map((image, index) => (
+              <li key={index}>
+                <img
+                  onLoad={this.onImgLoadHandler}
+                  onClick={onImgClick}
+                  className={`image-item ${showImagesClass}`}
+                  src={image.path}
+                  alt={image.alt}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
         <style jsx>{`
           .display-container {
             padding: 0 10px 3rem 10px;
@@ -120,7 +123,7 @@ class ImageDisplay extends React.Component {
             }
           }
         `}</style>
-      </div>
+      </React.Fragment>
     );
   }
 }
