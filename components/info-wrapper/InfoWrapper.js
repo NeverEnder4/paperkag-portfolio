@@ -11,53 +11,32 @@ const InfoWrapper = ({ children }) => {
           color: rgba(250, 250, 250, 0.8);
           margin-top: 10vh;
           position: relative;
-          top: 12vh;
-        }
-
-        .info-wrapper::after {
-          content: '';
-          left: -5%;
-          top: -15%;
-          width: 130vw;
-          height: 50%;
-          background-color: #1d1d1d;
-          position: absolute;
-          z-index: -1;
-          transform: rotate(-7deg);
-          outline: 1px solid transparent;
-        }
-        .info-wrapper::before {
-          content: '';
-          right: -5%;
-          top: -15%;
-          width: 130vw;
-          height: 50%;
-          background-color: #1d1d1d;
-          position: absolute;
-          z-index: -1;
-          transform: rotate(7deg);
-          outline: 1px solid transparent;
+          top: 0;
         }
 
         .content {
-          transform: translateY(-15%);
-          margin-bottom: 1vh;
+          transform: translateY(-9%);
+          margin-bottom: -4rem;
+        }
+        @media (min-width: 700px) {
+          .content {
+            transform: translateY(-13%);
+            margin-bottom: -6rem;
+          }
+        }
+        @media (min-width: 1025px) {
+          .content {
+            transform: translateY(-14%);
+          }
         }
         @media (min-width: 1200px) {
-          .info-wrapper::after {
-            transform: rotate(-5deg);
-          }
-          .info-wrapper::before {
-            transform: rotate(5deg);
-          }
-
           .info-wrapper {
-            margin-top: 25vh;
-            top: -2vh;
+            top: 7vh;
           }
 
           .content {
             margin-bottom: -4rem;
+            transform: translateY(-15%);
           }
         }
       `}</style>

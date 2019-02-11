@@ -291,14 +291,10 @@ class VideoPlayer extends React.Component {
             .media-controls .small-button {
               width: 3.5rem;
             }
-            @media (min-width: 700px) {
-              .container {
-                margin-bottom: 15rem;
-              }
-            }
+
             @media (min-width: 1200px) {
               .container {
-                margin-bottom: 20rem;
+                margin-bottom: 15rem;
               }
             }
           }

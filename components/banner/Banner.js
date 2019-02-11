@@ -103,6 +103,7 @@ const Banner = () => {
           }
           .banner-description {
             font-size: 1.35rem;
+            padding-top: 1rem;
           }
         }
       `}</style>

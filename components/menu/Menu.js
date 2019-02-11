@@ -41,7 +41,8 @@ const Menu = () => {
           .menu-item-container {
             backface-visibility: hidden;
             border: 2px solid #000000;
-            height: 25vh;
+            height: 20vh;
+            max-height: 30vh;
             display: block;
             margin-bottom: 10px;
             position: relative;
@@ -55,19 +56,19 @@ const Menu = () => {
           }
 
           .menu-item-container.art {
-            background-image: url('https://apettigrew.imgix.net/static/paintings.jpg?auto=format&q=35&w=600');
+            background-image: url('https://apettigrew.imgix.net/static/paintings.jpg?auto=format&q=35&w=1000');
             background-size: cover;
             background-position: center;
           }
 
           .menu-item-container.cinema {
-            background-image: url('https://apettigrew.imgix.net/static/skating-2.jpeg?auto=format&q=35&w=600');
+            background-image: url('https://apettigrew.imgix.net/static/skating-2.jpeg?auto=format&q=35&w=1000');
             background-size: cover;
             background-position: 50% 80%;
           }
 
           .menu-item-container.model {
-            background-image: url('https://apettigrew.imgix.net/static/kag-model.jpg?auto=format&q=35&w=600');
+            background-image: url('https://apettigrew.imgix.net/static/kag-model.jpg?auto=format&q=35&w=1000');
             background-size: cover;
             background-position: 50% 15%;
           }
@@ -96,7 +97,9 @@ const Menu = () => {
             }
 
             .menu-item-container {
+              box-sizing: border-box;
               backface-visibility: hidden;
+              margin: 0 2px;
               text-align: center;
               border: 2px solid #000000;
               width: 32vw;

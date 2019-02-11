@@ -5,9 +5,14 @@ class ImageDisplay extends React.Component {
       imagesRendered: false,
       imagesLoaded: false,
     };
+    this.imgElementRef = [];
   }
   componentDidMount() {
     this.setState({ imagesRendered: true });
+    const allImagesLoaded = this.imgElementRef.every(img => img.complete);
+    if (allImagesLoaded) this.setState({ imagesLoaded: true });
+
+    console.log('mounted');
   }
 
   onImgLoadHandler = () => {
@@ -26,6 +31,7 @@ class ImageDisplay extends React.Component {
             {imagesArray.map((image, index) => (
               <li key={index}>
                 <img
+                  ref={element => this.imgElementRef.push(element)}
                   onLoad={this.onImgLoadHandler}
                   onClick={onImgClick}
                   className={`image-item ${showImagesClass}`}
@@ -68,7 +74,7 @@ class ImageDisplay extends React.Component {
           }
 
           .image-gallery img:hover {
-            opacity: 0.7;
+            opacity: 0.85;
             transform: translateY(-3px);
             box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
           }

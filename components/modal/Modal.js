@@ -2,7 +2,12 @@ const Modal = ({ onModalClick, displayed, imgSrc, imgAlt }) => {
   const showModalClass = displayed ? 'show-modal' : '';
   return (
     <div onClick={onModalClick} className={`modal ${showModalClass}`}>
-      <img src={imgSrc} alt={imgAlt} className="modal-img" />
+      <div className="img-container">
+        <a className="close-link" href="#">
+          <img src="/static/icons/close.svg" alt="close modal" />
+        </a>
+        <img src={imgSrc} alt={imgAlt} className="modal-img" />
+      </div>
       <style jsx>{`
         .modal {
           position: fixed;
@@ -15,6 +20,7 @@ const Modal = ({ onModalClick, displayed, imgSrc, imgAlt }) => {
           align-items: center;
           visibility: hidden;
           opacity: 0;
+          overflow-y: auto;
           transform: translateX(-200%);
           transform-origin: 0% 50%;
           background-color: rgba(0, 0, 0, 0.9);
@@ -28,18 +34,41 @@ const Modal = ({ onModalClick, displayed, imgSrc, imgAlt }) => {
           transform: translateX(0);
         }
 
+        .img-container {
+          position: relative;
+        }
+
+        .close-link {
+          position: absolute;
+          right: 15px;
+          top: 15px;
+          width: 1.2rem;
+        }
+
+        .close-link img {
+          width: 100%;
+          opacity: 0;
+          transition: all 100ms ease-in-out;
+        }
+
+        .modal.show-modal .close-link img {
+          opacity: 1;
+          transform: rotate(720deg);
+          transition: all 600ms ease-in-out;
+        }
+
         .modal-img {
           display: block;
           width: 100%;
           max-width: 600px;
           opacity: 0;
           visibility: hidden;
-          transition: all 200ms 300ms ease-out;
         }
 
         .modal.show-modal .modal-img {
           opacity: 1;
           visibility: visible;
+          transition: all 300ms 200ms ease-out;
         }
       `}</style>
     </div>
