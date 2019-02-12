@@ -13,20 +13,6 @@
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 6,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    }
-  ],
-  "./Menu.css": [
-    {
-      "id": "./components/menu/Menu.css",
-      "name": "./components/menu/Menu.css",
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
     }
   ],
   "./noop": [

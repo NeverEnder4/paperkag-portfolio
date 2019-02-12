@@ -216,11 +216,14 @@ class VideoPlayer extends React.Component {
           .container {
             max-width: 1200px;
             margin: 0 auto;
+            margin-top: 0;
             margin-bottom: 6rem;
           }
           .video-display {
             position: relative;
             z-index: 10;
+            box-sizing: border-box;
+            box-shadow: 0 3px 3px rgba(0, 0, 0, 0.7);
           }
 
           .video-player {
@@ -269,6 +272,7 @@ class VideoPlayer extends React.Component {
             opacity: 0;
             visibility: hidden;
             transition: all 100ms ease-out;
+            box-shadow: 0 3px 3px rgba(0, 0, 0, 0.7);
           }
 
           .track-list.show-tracks {
@@ -342,11 +346,23 @@ class VideoPlayer extends React.Component {
             .track {
               font-size: 1.25rem;
             }
+          }
+          @media (min-width: 1200px) {
+            .container {
+              margin-top: 2rem;
+              margin-bottom: 10rem;
+            }
+            .video-display {
+              position: relative;
+              z-index: 10;
+              border-right: 10px solid #1d1d1d;
+              border-top: 10px solid #1d1d1d;
+              border-left: 10px solid #1d1d1d;
+              transition: border 100ms ease-out;
+            }
 
-            @media (min-width: 1200px) {
-              .container {
-                margin-bottom: 15rem;
-              }
+            .media-controls {
+              opacity: 1;
             }
           }
         `}</style>
