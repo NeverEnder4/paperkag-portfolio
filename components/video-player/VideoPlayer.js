@@ -1,4 +1,5 @@
 import Slider from './slider/Slider';
+import ProgressBar from './progress-bar/ProgressBar';
 
 class VideoPlayer extends React.Component {
   constructor(props) {
@@ -14,6 +15,9 @@ class VideoPlayer extends React.Component {
       volume: 30,
       loading: true,
       hoverClass: true,
+      tracksShowing: false,
+      duration: 0,
+      currentTime: 0,
     };
   }
 
@@ -62,9 +66,12 @@ class VideoPlayer extends React.Component {
   };
 
   onCanPlayHandler = () => {
-    setTimeout(() => {
-      this.setState({ loading: false, showButton: true });
-    }, 1500);
+    this.setState((prevState, props) => ({
+      loading: false,
+      showButton: true,
+      duration: this.videoElementRef.duration,
+      currentTime: this.videoElementRef.currentTime,
+    }));
   };
 
   onSelectTrackHandler = video => {
@@ -82,6 +89,27 @@ class VideoPlayer extends React.Component {
     this.videoElementRef.volume = volume;
   };
 
+  onTrackListClickHandler = () => {
+    this.setState((prevState, props) => ({
+      tracksShowing: !prevState.tracksShowing,
+    }));
+  };
+
+  onTimeUpdateHandler = e => {
+    e.persist();
+    this.setState((prevState, props) => ({
+      currentTime: e.target.currentTime,
+    }));
+  };
+
+  onProgressBarChange = e => {
+    e.persist();
+    this.setState((prevState, props) => ({
+      currentTime: parseInt(e.target.value, 10),
+    }));
+    this.videoElementRef.currentTime = e.target.value;
+  };
+
   render() {
     const { videos } = this.props;
     const {
@@ -92,9 +120,13 @@ class VideoPlayer extends React.Component {
       muted,
       hoverClass,
       loading,
+      tracksShowing,
+      duration,
+      currentTime,
     } = this.state;
     const showButtonClass = showButton ? 'show-button' : '';
     const canHoverButton = hoverClass ? 'scale(1)' : 'scale(0)';
+    const showTracksClass = tracksShowing ? 'show-tracks' : '';
     const loadingScreen = loading ? (
       <div className="loading-screen">
         <img src="https://apettigrew.imgix.net/static/kag-logo.png" />
@@ -106,6 +138,7 @@ class VideoPlayer extends React.Component {
         <div className="video-display" onMouseOver={this.onMouseOverHandler}>
           {loadingScreen}
           <video
+            onTimeUpdate={this.onTimeUpdateHandler}
             onPlay={this.onNoLongerPauseHandler}
             onCanPlay={this.onCanPlayHandler}
             onEnded={this.onVideoEndHandler}
@@ -137,17 +170,27 @@ class VideoPlayer extends React.Component {
             )}
           </div>
           <div className="media-controls">
-            <Slider defaultVal={volume} onSliderChange={this.onSliderChange} />
-            <button onClick={this.onMuteHandler} className="small-button">
-              {muted ? (
-                <img src="/static/icons/video-player/mute.svg" />
-              ) : (
-                <img src="/static/icons/video-player/unmute.svg" />
-              )}
+            <Slider
+              onMuteHandler={this.onMuteHandler}
+              muted={muted}
+              defaultVal={volume}
+              onSliderChange={this.onSliderChange}
+            />
+            <ProgressBar
+              onProgressBarChangeHandler={this.onProgressBarChange}
+              duration={duration}
+              currentTime={currentTime}
+              onSliderChange={this.onSliderChange}
+            />
+            <button
+              onClick={this.onTrackListClickHandler}
+              className="small-button"
+            >
+              <img src="/static/icons/video-player/track-list.svg" />
             </button>
           </div>
         </div>
-        <ul className="track-list">
+        <ul className={`track-list ${showTracksClass}`}>
           {videos.map((video, index) => {
             let selectedTrackClass = '';
             if (video.src === videos[this.state.video].src) {
@@ -177,6 +220,7 @@ class VideoPlayer extends React.Component {
           }
           .video-display {
             position: relative;
+            z-index: 10;
           }
 
           .video-player {
@@ -186,6 +230,7 @@ class VideoPlayer extends React.Component {
 
           .play-controls {
             position: absolute;
+            z-index: 100;
             padding: 0.2rem 0.4rem;
             top: 50%;
             left: 50%;
@@ -196,13 +241,6 @@ class VideoPlayer extends React.Component {
             width: 6rem;
             transform: scale(0);
             transition: transform 200ms ease-out;
-          }
-
-          .container button {
-            border: none;
-            cursor: pointer;
-            background: transparent;
-            outline: none;
           }
 
           .video-display:hover .center-button {
@@ -219,7 +257,7 @@ class VideoPlayer extends React.Component {
 
           .track-list {
             position: relative;
-            z-index: 100;
+            z-index: 0;
             list-style-type: none;
             margin: 0;
             padding: 0;
@@ -227,6 +265,16 @@ class VideoPlayer extends React.Component {
             flex-direction: column;
             background-color: #1d1d1d;
             color: rgba(250, 250, 250, 0.8);
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 100ms ease-out;
+          }
+
+          .track-list.show-tracks {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
           }
 
           .track {
@@ -236,6 +284,15 @@ class VideoPlayer extends React.Component {
             cursor: pointer;
             font-family: 'Baloo Thambi';
             text-align: center;
+            transform-origin: 50% 100%;
+            transform: scaleY(0);
+            opacity: 0;
+            transition: all 200ms 100ms ease-out;
+          }
+
+          .show-tracks .track {
+            transform: scaleY(1);
+            opacity: 1;
           }
 
           .track:hover,
@@ -253,24 +310,28 @@ class VideoPlayer extends React.Component {
           }
 
           .media-controls {
+            z-index: 100;
+            box-sizing: border-box;
+            background-color: rgba(0, 0, 0, 0.8);
             display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            width: 5rem;
-            height: 3rem;
+            align-items: center;
+            justify-content: space-around;
+            width: 100%;
+            height: 30px;
+            padding: 2px;
             position: absolute;
             right: 0;
             opacity: 0.35;
             bottom: 0;
-            right: 10px;
             transition: opacity 300ms ease-out;
           }
 
           .media-controls .small-button {
-            position: relative;
-            left: 8px;
-            top: 15px;
             width: 2.5rem;
+          }
+
+          .media-controls .small-button img {
+            width: 100%;
           }
 
           .media-controls:hover {
@@ -280,16 +341,6 @@ class VideoPlayer extends React.Component {
           @media (min-width: 600px) {
             .track {
               font-size: 1.25rem;
-            }
-
-            .media-controls {
-              right: 20px;
-              bottom: 20px;
-              width: 7rem;
-            }
-
-            .media-controls .small-button {
-              width: 3.5rem;
             }
 
             @media (min-width: 1200px) {
@@ -322,6 +373,13 @@ class VideoPlayer extends React.Component {
               width: 4rem;
               perspective: 1000px;
               animation: spin 2s infinite alternate ease-in-out;
+            }
+
+            button {
+              border: none;
+              cursor: pointer;
+              background: transparent;
+              outline: none;
             }
 
             @keyframes spin {

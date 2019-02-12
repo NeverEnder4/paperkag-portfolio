@@ -31,11 +31,12 @@ class art extends React.Component {
   onImgClickHandler = e => {
     console.log('clicked');
     e.persist();
+
     this.setState((prevState, props) => ({
       displayModal: true,
       modal: {
-        src: e.target.src,
-        alt: e.target.alt,
+        src: e.target.dataset.imgsrc,
+        alt: e.target.dataset.imgalt,
       },
     }));
   };

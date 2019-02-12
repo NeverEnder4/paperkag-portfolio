@@ -35,8 +35,8 @@ class modeling extends React.Component {
     this.setState((prevState, props) => ({
       displayModal: true,
       modal: {
-        src: e.target.src,
-        alt: e.target.alt,
+        src: e.target.dataset.imgsrc,
+        alt: e.target.dataset.imgalt,
       },
     }));
   };

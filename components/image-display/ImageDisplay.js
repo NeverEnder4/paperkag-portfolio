@@ -2,44 +2,46 @@ class ImageDisplay extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      imagesRendered: false,
+      rendered: false,
       imagesLoaded: false,
     };
-    this.imgElementRef = [];
   }
   componentDidMount() {
-    this.setState({ imagesRendered: true });
-    const allImagesLoaded = this.imgElementRef.every(img => img.complete);
-    if (allImagesLoaded) this.setState({ imagesLoaded: true });
-
-    console.log('mounted');
+    this.setState((prevState, props) => ({ rendered: true }));
   }
 
-  onImgLoadHandler = () => {
+  onImgLoadHandler = e => {
     this.setState({ imagesLoaded: true });
   };
+
   render() {
-    const { imagesRendered, imagesLoaded } = this.state;
+    const { rendered, imagesLoaded } = this.state;
     const { imagesArray, displayName, description, onImgClick } = this.props;
-    const showImagesClass = imagesRendered && imagesLoaded ? 'show-images' : '';
+    const showImagesClass = rendered && imagesLoaded ? 'show-images' : '';
     return (
       <React.Fragment>
         <div className="display-container">
           <h1 className="display-name">{displayName}</h1>
           <h2 className="display-description">{description}</h2>
           <ul className="image-gallery">
-            {imagesArray.map((image, index) => (
-              <li key={index}>
-                <img
-                  ref={element => this.imgElementRef.push(element)}
-                  onLoad={this.onImgLoadHandler}
+            {imagesArray.map((image, index) => {
+              return (
+                <li
+                  key={index}
+                  data-imgsrc={image.path}
+                  data-imgalt={image.alt}
                   onClick={onImgClick}
                   className={`image-item ${showImagesClass}`}
-                  src={image.path}
-                  alt={image.alt}
-                />
-              </li>
-            ))}
+                >
+                  <img
+                    className="img-item-preview"
+                    onLoad={this.onImgLoadHandler}
+                    src={image.path}
+                    alt={image.alt}
+                  />
+                </li>
+              );
+            })}
           </ul>
         </div>
         <style jsx>{`
@@ -57,26 +59,55 @@ class ImageDisplay extends React.Component {
             flex-direction: column;
           }
 
-          .image-gallery li {
-            margin-bottom: 0.5rem;
+          .img-item-preview {
+            backface-visibility: hidden;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            color: rgba(250, 250, 250);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Baloo Thambi';
+            font-size: 1.2rem;
+            text-align: center;
           }
 
-          .image-gallery img {
+          .image-gallery li {
+            position: relative;
+            margin-bottom: 1rem;
             width: 100%;
-            transition: all 200ms ease-out;
-
+            height: 30vh;
+            min-height: 200px;
             cursor: pointer;
             opacity: 0;
-            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.6);
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
+            transition: transform 200ms ease-out;
+            background: #1d1d1d;
           }
 
-          .image-gallery img.show-images {
+          .image-gallery li::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: 5px 7px 7px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: all 200ms ease-out;
+          }
+
+          .image-gallery li:hover {
+            transform: translate3d(0px, -5px, 0px);
+          }
+
+          .image-gallery li:hover::after {
             opacity: 1;
           }
 
-          .image-gallery img:hover {
-            transform: translateY(-5px);
-            box-shadow: 2px 5px 3px rgba(0, 0, 0, 0.3);
+          .image-gallery li.show-images {
+            opacity: 1;
           }
 
           .display-name {
@@ -122,10 +153,6 @@ class ImageDisplay extends React.Component {
             .image-gallery li {
               width: 48.3%;
               margin: 5px 5px;
-            }
-
-            .image-gallery img {
-              width: 100%;
             }
           }
         `}</style>

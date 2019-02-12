@@ -1,68 +1,58 @@
-class Slider extends React.Component {
-  constructor() {
-    super();
-    this.sliderElementRef = null;
-    this.state = {
-      sliderElement: null,
-    };
-  }
-
-  componentDidMount() {
-    this.setState({ sliderElement: this.sliderElementRef });
+class ProgressBar extends React.Component {
+  constructor(props) {
+    super(props);
   }
 
   render() {
-    let slider = this.state.sliderElement;
-    const { defaultVal, onSliderChange, muted, onMuteHandler } = this.props;
+    const { duration, currentTime, onProgressBarChangeHandler } = this.props;
+
+    const formatSeconds = seconds => {
+      const min = Math.floor(seconds / 60);
+      let sec = Math.floor(seconds % 60);
+      if (sec < 10) sec = '0' + sec;
+      const formatted = `${min}:${sec}`;
+      return formatted;
+    };
+
     return (
-      <div className="slider">
-        <button onClick={onMuteHandler} className="small-button">
-          {muted ? (
-            <img src="/static/icons/video-player/mute.svg" />
-          ) : (
-            <img src="/static/icons/video-player/unmute.svg" />
-          )}
-        </button>
+      <div className="progress-bar">
+        <div className="timer">
+          <span>{formatSeconds(currentTime)}</span>
+          <span>/</span>
+          <span>{formatSeconds(duration)}</span>
+        </div>
+
         <input
-          className="range"
+          className="progress-bar"
           ref={element => (this.sliderElementRef = element)}
           min="0"
-          max="100"
-          defaultValue={defaultVal}
+          max={duration}
+          value={currentTime}
           type="range"
-          onChange={() => {
-            onSliderChange(slider);
-          }}
-          aria-label="volume slider"
+          onChange={onProgressBarChangeHandler}
+          aria-label="media player progress bar"
         />
         <style jsx>{`
-          .slider {
+          .progress-bar {
             display: flex;
             align-items: center;
+            color: rgba(250, 250, 250, 0.8);
+            margin-left: 10px;
+            font-size: 0.8rem;
+            font-family: 'Baloo Thambi';
+          }
+          .timer {
+            display: flex;
+            align-items: center;
+            letter-spacing: 1px;
           }
 
-          .small-button {
-            width: 2.5rem;
-          }
-
-          .slider:hover input[type='range'],
-          .slider:focus input[type='range'] {
-            width: 50px;
-            opacity: 1;
-            visibility: visible;
-          }
-
-          .small-button img {
-            width: 100%;
-          }
           input[type='range'] {
             -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
-            width: 0px; /* Specific width is required for Firefox. */
+            width: 100%; /* Specific width is required for Firefox. */
             background: transparent; /* Otherwise white in Chrome */
-            opacity: 0;
-            visibility: hidden;
-
-            transition: all 100ms ease-out;
+            margin-left: 5px;
+            flex: 1;
           }
 
           input[type='range']::-webkit-slider-thumb {
@@ -74,8 +64,9 @@ class Slider extends React.Component {
           }
 
           input[type='range']::-ms-track {
-            width: 50px;
+            width: 100%;
             cursor: pointer;
+            flex: 1;
 
             /* Hides the slider so custom styles can be added */
             background: transparent;
@@ -173,16 +164,26 @@ class Slider extends React.Component {
             background: rgba(250, 250, 250, 0.8);
           }
 
-          @media (min-width: 1000px) {
-            input[type='range'] {
-              width: 5rem;
+          @media (min-width: 500px) {
+            .progress-bar {
+              margin-left: 5px;
             }
+            input[type='range'] {
+              width: 18rem;
+            }
+          }
+          @media (min-width: 700px) {
+            .progress-bar {
+              margin-left: 5px;
+            }
+            input[type='range'] {
+              width: 25rem;
+            }
+          }
 
-            .slider:hover input[type='range'],
-            .slider:focus input[type='range'] {
-              width: 8rem;
-              opacity: 1;
-              visibility: visible;
+          @media (min-width: 800px) {
+            input[type='range'] {
+              width: 35rem;
             }
           }
         `}</style>
@@ -191,4 +192,4 @@ class Slider extends React.Component {
   }
 }
 
-export default Slider;
+export default ProgressBar;
