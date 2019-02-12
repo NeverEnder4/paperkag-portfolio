@@ -39,7 +39,7 @@ class ProgressBar extends React.Component {
             color: rgba(250, 250, 250, 0.8);
             margin-left: 10px;
             font-size: 0.8rem;
-            font-family: 'Baloo Thambi';
+            font-family: 'Baloo Thambi', 'Sans-Serif';
           }
           .timer {
             display: flex;

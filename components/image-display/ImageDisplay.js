@@ -5,12 +5,18 @@ class ImageDisplay extends React.Component {
       rendered: false,
       imagesLoaded: false,
     };
+    this.imgElementRef = [];
   }
   componentDidMount() {
     this.setState((prevState, props) => ({ rendered: true }));
+
+    // If images get cached and no longer fire the onload event, this will set imagesLoaded state to true
+    const imagesAlreadyLoaded = this.imgElementRef.some(img => img.complete);
+    if (imagesAlreadyLoaded)
+      this.setState((prevState, props) => ({ imagesLoaded: true }));
   }
 
-  onImgLoadHandler = e => {
+  onImgLoadHandler = () => {
     this.setState({ imagesLoaded: true });
   };
 
@@ -18,6 +24,7 @@ class ImageDisplay extends React.Component {
     const { rendered, imagesLoaded } = this.state;
     const { imagesArray, displayName, description, onImgClick } = this.props;
     const showImagesClass = rendered && imagesLoaded ? 'show-images' : '';
+
     return (
       <React.Fragment>
         <div className="display-container">
@@ -28,15 +35,19 @@ class ImageDisplay extends React.Component {
               return (
                 <li
                   key={index}
-                  data-imgsrc={image.path}
+                  data-imgsrc={`${image.url}?w=1000&format=compress`}
                   data-imgalt={image.alt}
                   onClick={onImgClick}
                   className={`image-item ${showImagesClass}`}
                 >
                   <img
+                    ref={element => this.imgElementRef.push(element)}
                     className="img-item-preview"
                     onLoad={this.onImgLoadHandler}
-                    src={image.path}
+                    srcSet={`${image.srcSetLg}, ${image.srcSetMd}, ${
+                      image.srcSetSm
+                    }`}
+                    src={image.src}
                     alt={image.alt}
                   />
                 </li>
@@ -68,7 +79,7 @@ class ImageDisplay extends React.Component {
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Baloo Thambi';
+            font-family: 'Baloo Thambi', 'Sans-Serif';
             font-size: 1.2rem;
             text-align: center;
           }
@@ -77,7 +88,7 @@ class ImageDisplay extends React.Component {
             position: relative;
             margin-bottom: 1rem;
             width: 100%;
-            height: 30vh;
+            height: 35vh;
             min-height: 200px;
             cursor: pointer;
             opacity: 0;
@@ -111,14 +122,14 @@ class ImageDisplay extends React.Component {
           }
 
           .display-name {
-            font-family: 'Baloo Thambi';
+            font-family: 'Baloo Thambi', 'Sans-Serif';
             margin: 0.3rem 0 0 0;
             text-transform: uppercase;
             font-size: 1.5rem;
           }
 
           .display-description {
-            font-family: 'Baloo Thambi';
+            font-family: 'Baloo Thambi', 'Sans-Serif';
             margin: 0 0 0.2rem 0;
             color: #444444;
             font-weight: 200;

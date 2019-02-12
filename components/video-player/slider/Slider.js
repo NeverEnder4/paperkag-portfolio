@@ -16,11 +16,15 @@ class Slider extends React.Component {
     const { defaultVal, onSliderChange, muted, onMuteHandler } = this.props;
     return (
       <div className="slider">
-        <button onClick={onMuteHandler} className="small-button">
+        <button
+          onClick={onMuteHandler}
+          className="small-button"
+          aria-label="mute"
+        >
           {muted ? (
-            <img src="/static/icons/video-player/mute.svg" />
+            <img src="/static/icons/video-player/mute.svg" alt="mute" />
           ) : (
-            <img src="/static/icons/video-player/unmute.svg" />
+            <img src="/static/icons/video-player/unmute.svg" alt="unmute" />
           )}
         </button>
         <input

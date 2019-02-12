@@ -1,31 +1,23 @@
 import Link from 'next/link';
 
-import './Menu.css';
-
 const Menu = () => {
   return (
     <nav>
       <ul className="menu">
         <Link href="/art">
-          <a>
-            <li className="menu-item-container art">
-              <span className="text">Art</span>
-            </li>
-          </a>
+          <li className="menu-item-container art">
+            <span className="text">Art</span>
+          </li>
         </Link>
         <Link href="/cinema">
-          <a>
-            <li className="menu-item-container cinema">
-              <span className="text">Cinema</span>
-            </li>
-          </a>
+          <li className="menu-item-container cinema">
+            <span className="text">Cinema</span>
+          </li>
         </Link>
         <Link href="/modeling">
-          <a>
-            <li className="menu-item-container model">
-              <span className="text">Modeling</span>
-            </li>
-          </a>
+          <li className="menu-item-container model">
+            <span className="text">Modeling</span>
+          </li>
         </Link>
 
         <style jsx>{`
@@ -48,10 +40,11 @@ const Menu = () => {
             position: relative;
             filter: grayscale(75%);
             transition: filter 300ms ease-out;
+            cursor: pointer;
           }
 
-          .menu a:hover .menu-item-container,
-          .menu a:focus .menu-item-container {
+          .menu li:hover,
+          .menu li:focus {
             filter: grayscale(0%);
           }
 
@@ -73,15 +66,11 @@ const Menu = () => {
             background-position: 50% 15%;
           }
 
-          .menu a {
-            text-decoration: none;
-          }
-
           .menu-item-container .text {
             font-size: 3rem;
             text-transform: uppercase;
             color: #ffffff;
-            font-family: 'Baloo Thambi';
+            font-family: 'Baloo Thambi', 'Sans-Serif';
             position: absolute;
             right: 10px;
             bottom: 0%;
@@ -111,8 +100,8 @@ const Menu = () => {
               transition: filter 100ms ease-out;
             }
 
-            .menu a:hover .menu-item-container .text,
-            .menu a:focus .menu-item-container .text {
+            .menu li:hover .text,
+            .menu li:focus .text {
               opacity: 1;
               visibility: visible;
             }
@@ -122,7 +111,7 @@ const Menu = () => {
               font-size: 5vw;
               text-transform: uppercase;
               color: #ffffff;
-              font-family: 'Baloo Thambi';
+              font-family: 'Baloo Thambi', 'Sans-Serif';
               position: static;
               text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
               opacity: 0;

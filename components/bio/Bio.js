@@ -3,7 +3,7 @@ const Bio = () => {
     <article className="bio">
       <div className="bio-content">
         <img
-          src="https://apettigrew.imgix.net/static/street-art-4.jpeg"
+          src="https://apettigrew.imgix.net/static/street-art-4.jpeg?w=300&format=compress"
           className="avatar "
           alt="avatar"
         />
@@ -51,8 +51,8 @@ const Bio = () => {
 
         .avatar {
           border-radius: 8px;
-          border: 1px solid #000000;
-          width: 64px;
+          width: 75px;
+          /* box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.8); */
         }
         @media (min-width: 700px) {
           .bio {

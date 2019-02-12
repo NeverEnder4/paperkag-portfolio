@@ -11,9 +11,7 @@ const SmallNav = ({ currPage, pages }) => {
           return (
             <React.Fragment key={page.name}>
               <Link prefetch href={page.path}>
-                <a>
-                  <li className={`nav-item ${currPageClass}`}>{page.name}</li>
-                </a>
+                <li className={`nav-item ${currPageClass}`}>{page.name}</li>
               </Link>
               {divider}
             </React.Fragment>
@@ -30,20 +28,21 @@ const SmallNav = ({ currPage, pages }) => {
             margin: 0 auto;
           }
 
-          .small-nav a {
+          .small-nav li {
             text-decoration: none;
             text-transform: uppercase;
             transition: opacity 100ms ease-out;
+            cursor: pointer;
           }
 
           .nav-item {
-            font-family: 'Baloo Thambi';
+            font-family: 'Baloo Thambi', 'Sans-Serif';
             font-size: 1.25rem;
             color: #1d1d1d;
           }
 
-          .small-nav a:hover,
-          .small-nav a:focus {
+          .small-nav li:hover,
+          .small-nav li:focus {
             opacity: 0.5;
           }
 

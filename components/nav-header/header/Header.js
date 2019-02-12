@@ -9,7 +9,10 @@ const Header = () => {
             <span className="brand-name">PAPERKAG</span>
             <span className="artist-name">by Kenyatta Furious Barnette</span>
           </div>
-          <img src="https://apettigrew.imgix.net/static/kag-logo.png" />
+          <img
+            src="https://apettigrew.imgix.net/static/kag-logo.png?w=100&format=compress"
+            alt="PaperKag Logo"
+          />
         </a>
       </Link>
 
@@ -48,12 +51,12 @@ const Header = () => {
         .logo-link .brand-name {
           font-size: 2.4rem;
           color: #1d1d1d;
-          font-family: 'SEGA LOGO FONT';
+          font-family: 'SEGA LOGO FONT', 'Sans-Serif';
           font-weight: 200;
         }
 
         .logo-link .artist-name {
-          font-family: 'Baloo Thambi';
+          font-family: 'Baloo Thambi', 'Sans-Serif';
           color: #333333;
         }
         @media (min-width: 1024px) {
@@ -72,12 +75,12 @@ const Header = () => {
           .logo-link .brand-name {
             font-size: 5rem;
             color: #1d1d1d;
-            font-family: 'SEGA LOGO FONT';
+            font-family: 'SEGA LOGO FONT', 'Sans-Serif';
             font-weight: 200;
           }
 
           .logo-link .artist-name {
-            font-family: 'Baloo Thambi';
+            font-family: 'Baloo Thambi', 'Sans-Serif';
             color: #333333;
             font-size: 1.2rem;
           }
@@ -90,6 +93,13 @@ const Header = () => {
               justify-content: flex-start;
             }
           }
+        }
+        @font-face {
+          font-display: swap;
+          font-family: 'SEGA LOGO FONT';
+          font-style: normal;
+          font-weight: normal;
+          src: local('SEGA LOGO FONT'), url('./SEGA.woff') format('woff');
         }
       `}</style>
     </header>

@@ -124,12 +124,15 @@ class VideoPlayer extends React.Component {
       duration,
       currentTime,
     } = this.state;
-    const showButtonClass = showButton ? 'show-button' : '';
+    const showButtonClass = showButton && !loading ? 'show-button' : '';
     const canHoverButton = hoverClass ? 'scale(1)' : 'scale(0)';
     const showTracksClass = tracksShowing ? 'show-tracks' : '';
     const loadingScreen = loading ? (
       <div className="loading-screen">
-        <img src="https://apettigrew.imgix.net/static/kag-logo.png" />
+        <img
+          src="https://apettigrew.imgix.net/static/kag-logo.png"
+          alt="paperkag logo"
+        />
       </div>
     ) : null;
 
@@ -155,6 +158,7 @@ class VideoPlayer extends React.Component {
           <div className="play-controls">
             {status === 'pause' ? (
               <button
+                aria-label="play button"
                 className={`play center-button ${showButtonClass}`}
                 onClick={this.onPlayHandler}
               >
@@ -162,6 +166,7 @@ class VideoPlayer extends React.Component {
               </button>
             ) : (
               <button
+                aria-label="pause button"
                 className={`play center-button ${showButtonClass}`}
                 onClick={this.onPauseHandler}
               >
@@ -183,10 +188,14 @@ class VideoPlayer extends React.Component {
               onSliderChange={this.onSliderChange}
             />
             <button
+              aria-label="show videos"
               onClick={this.onTrackListClickHandler}
               className="small-button"
             >
-              <img src="/static/icons/video-player/track-list.svg" />
+              <img
+                src="/static/icons/video-player/track-list.svg"
+                alt="show videos icon"
+              />
             </button>
           </div>
         </div>
@@ -286,7 +295,7 @@ class VideoPlayer extends React.Component {
             font-size: 0.875rem;
             border-top: 1px solid white;
             cursor: pointer;
-            font-family: 'Baloo Thambi';
+            font-family: 'Baloo Thambi', 'Sans-Serif';
             text-align: center;
             transform-origin: 50% 100%;
             transform: scaleY(0);

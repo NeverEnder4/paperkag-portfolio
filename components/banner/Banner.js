@@ -5,7 +5,11 @@ const Banner = () => {
         href="https://www.vogue.it/photovogue/portfolio/?id=148007"
         target="_blank"
       >
-        <img className="banner-img" src="/static/vogue-logo.jpg" />
+        <img
+          className="banner-img"
+          src="/static/vogue-logo.jpg"
+          alt="vogue logo"
+        />
       </a>
       <div className="banner-content">
         <h1 className="banner-title">Vogue Italia</h1>
@@ -15,6 +19,7 @@ const Banner = () => {
           <a
             href="https://www.vogue.it/photovogue/portfolio/?id=148007"
             target="_blank"
+            rel="noreferrer"
           >
             portfolio
           </a>

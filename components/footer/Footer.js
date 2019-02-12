@@ -42,12 +42,12 @@ const Footer = () => {
 
         .logo-link .brand-name {
           font-size: 1.5rem;
-          font-family: 'SEGA LOGO FONT';
+          font-family: 'SEGA LOGO FONT', 'Sans-Serif';
           font-weight: 200;
         }
 
         .logo-link .artist-name {
-          font-family: 'Baloo Thambi';
+          font-family: 'Baloo Thambi', 'Sans-Serif';
         }
         @media (min-width: 700px) {
           .footer {
@@ -56,13 +56,19 @@ const Footer = () => {
 
           .logo-link .brand-name {
             font-size: 3rem;
-            font-family: 'SEGA LOGO FONT';
             font-weight: 200;
           }
 
           .logo-link .artist-name {
-            font-family: 'Baloo Thambi';
+            font-family: 'Baloo Thambi', 'Sans-Serif';
           }
+        }
+        @font-face {
+          font-display: swap;
+          font-family: 'SEGA LOGO FONT';
+          font-style: normal;
+          font-weight: normal;
+          src: local('SEGA LOGO FONT'), url('./SEGA.woff') format('woff');
         }
       `}</style>
     </footer>
