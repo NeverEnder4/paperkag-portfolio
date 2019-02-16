@@ -2,11 +2,11 @@ import SmallNav from './small-nav/SmallNav';
 import Header from './header/Header';
 import HeadTag from './head-tag/HeadTag';
 
-const NavHeader = ({ pageList, currPage }) => {
+const NavHeader = ({ pageList, currPage, homePage }) => {
   return (
     <div className="nav-header">
       <HeadTag />
-      <Header />
+      <Header homePage={homePage} />
       <SmallNav pages={pageList} currPage={currPage} />
       <style jsx>{`
         .nav-header {

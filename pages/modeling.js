@@ -58,7 +58,7 @@ class modeling extends React.Component {
           imgSrc={modal.src}
           imgAlt={modal.alt}
         />
-        <NavHeader pageList={pageList} currPage={currPage} />
+        <NavHeader homePage={false} pageList={pageList} currPage={currPage} />
         <main>
           <div className="content-wrapper">
             <Banner />

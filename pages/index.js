@@ -15,7 +15,7 @@ const index = () => {
       <div className="index">
         <HeadTag />
         <div className="header-position">
-          <Header />
+          <Header homePage={true} />
         </div>
         <Menu />
 

@@ -14,7 +14,7 @@ import 'normalize.css';
 const cinema = ({ currPage }) => {
   return (
     <PageWrapper>
-      <NavHeader pageList={pageList} currPage={currPage} />
+      <NavHeader homePage={false} pageList={pageList} currPage={currPage} />
       <main>
         <div className="content-wrapper">
           <VideoPlayer videos={videos} />
