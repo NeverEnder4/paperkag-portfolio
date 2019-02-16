@@ -9,7 +9,7 @@ const InfoWrapper = ({ children }) => {
         .info-wrapper {
           background-color: #1d1d1d;
           color: rgba(250, 250, 250, 0.8);
-          margin-top: 10vh;
+          margin-top: 5vh;
           position: relative;
           top: 0;
         }
@@ -21,6 +21,7 @@ const InfoWrapper = ({ children }) => {
         @media (min-width: 700px) {
           .content {
             transform: translateY(-13%);
+            margin-top: 10vh;
             margin-bottom: -6rem;
           }
         }

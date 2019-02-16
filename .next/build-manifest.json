@@ -3,15 +3,15 @@
     "static/development/dll/dll_724ae78efd21d9b28c3a.js"
   ],
   "pages": {
-    "/_app": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
     "/_error": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/art": [
+    "/_app": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/cinema": [
       "static/runtime/webpack.js",
       "static/css/styles.chunk.css",
       "static/chunks/styles.js",
@@ -29,7 +29,7 @@
       "static/chunks/styles.js",
       "static/runtime/main.js"
     ],
-    "/cinema": [
+    "/art": [
       "static/runtime/webpack.js",
       "static/css/styles.chunk.css",
       "static/chunks/styles.js",

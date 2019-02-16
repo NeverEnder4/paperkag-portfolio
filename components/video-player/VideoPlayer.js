@@ -1,24 +1,26 @@
 import Slider from './slider/Slider';
 import ProgressBar from './progress-bar/ProgressBar';
+import TrackList from './track-list/TrackList';
+
+const defaultState = {
+  muted: false,
+  status: 'pause',
+  showButton: false,
+  currVideo: 0,
+  volume: 30,
+  loading: true,
+  hoverClass: true,
+  tracksShowing: false,
+  duration: 0,
+  currentTime: 0,
+};
 
 class VideoPlayer extends React.Component {
   constructor(props) {
     super(props);
     this.videoElementRef = null;
     this.sourceElementRef = null;
-
-    this.state = {
-      muted: false,
-      status: 'pause',
-      showButton: false,
-      video: 0,
-      volume: 30,
-      loading: true,
-      hoverClass: true,
-      tracksShowing: false,
-      duration: 0,
-      currentTime: 0,
-    };
+    this.state = defaultState;
   }
 
   componentDidMount() {
@@ -75,8 +77,9 @@ class VideoPlayer extends React.Component {
   };
 
   onSelectTrackHandler = video => {
+    console.log(video);
     this.setState({
-      video: video,
+      currVideo: video,
       status: 'pause',
       loading: true,
     });
@@ -115,7 +118,7 @@ class VideoPlayer extends React.Component {
     const {
       status,
       showButton,
-      video,
+      currVideo,
       volume,
       muted,
       hoverClass,
@@ -151,8 +154,8 @@ class VideoPlayer extends React.Component {
           >
             <source
               ref={element => (this.sourceElementRef = element)}
-              src={videos[video].src}
-              type={videos[video].type}
+              src={videos[currVideo].src}
+              type={videos[currVideo].type}
             />
           </video>
           <div className="play-controls">
@@ -199,28 +202,12 @@ class VideoPlayer extends React.Component {
             </button>
           </div>
         </div>
-        <ul className={`track-list ${showTracksClass}`}>
-          {videos.map((video, index) => {
-            let selectedTrackClass = '';
-            if (video.src === videos[this.state.video].src) {
-              selectedTrackClass = 'selected-track';
-            } else {
-              selectedTrackClass = '';
-            }
-
-            return (
-              <li
-                onClick={() => this.onSelectTrackHandler(index)}
-                key={video.title}
-                className={`track ${selectedTrackClass}`}
-              >
-                <span className="title">
-                  {video.title} - - {video.genre}
-                </span>
-              </li>
-            );
-          })}
-        </ul>
+        <TrackList
+          videos={videos}
+          currVideo={currVideo}
+          onSelectTrackHandler={this.onSelectTrackHandler}
+          showTracksClass={showTracksClass}
+        />
         <style jsx>{`
           .container {
             max-width: 1200px;
@@ -267,61 +254,6 @@ class VideoPlayer extends React.Component {
             width: 100%;
           }
 
-          .track-list {
-            position: relative;
-            z-index: 0;
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            background-color: #1d1d1d;
-            color: rgba(250, 250, 250, 0.8);
-            transform: translateY(-100%);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 100ms ease-out;
-            box-shadow: 0 3px 3px rgba(0, 0, 0, 0.7);
-          }
-
-          .track-list.show-tracks {
-            transform: translateY(0);
-            opacity: 1;
-            visibility: visible;
-          }
-
-          .track {
-            display: flex;
-            font-size: 0.875rem;
-            border-top: 1px solid white;
-            cursor: pointer;
-            font-family: 'Baloo Thambi', 'Sans-Serif';
-            text-align: center;
-            transform-origin: 50% 100%;
-            transform: scaleY(0);
-            opacity: 0;
-            transition: all 200ms 100ms ease-out;
-          }
-
-          .show-tracks .track {
-            transform: scaleY(1);
-            opacity: 1;
-          }
-
-          .track:hover,
-          .track:focus {
-            background-color: #333333;
-          }
-
-          .selected-track {
-            color: #ffff00;
-          }
-
-          .track .title {
-            padding: 0.8rem 1rem;
-            width: 100%;
-          }
-
           .media-controls {
             z-index: 100;
             box-sizing: border-box;
@@ -351,11 +283,6 @@ class VideoPlayer extends React.Component {
             opacity: 1;
           }
 
-          @media (min-width: 600px) {
-            .track {
-              font-size: 1.25rem;
-            }
-          }
           @media (min-width: 1200px) {
             .container {
               margin-top: 2rem;
@@ -375,57 +302,6 @@ class VideoPlayer extends React.Component {
             }
           }
         `}</style>
-        <style jsx global>
-          {`
-            .loading-screen {
-              position: absolute;
-              width: 100%;
-              height: 100%;
-              left: 0;
-              top: 0;
-              background-image: radial-gradient(
-                circle farthest-corner at 10% 20%,
-                rgba(0, 0, 0, 1) 0%,
-                rgba(64, 64, 64, 1) 90.2%
-              );
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              z-index: 100;
-            }
-
-            .loading-screen img {
-              width: 4rem;
-              perspective: 1000px;
-              animation: spin 2s infinite alternate ease-in-out;
-            }
-
-            button {
-              border: none;
-              cursor: pointer;
-              background: transparent;
-              outline: none;
-            }
-
-            @keyframes spin {
-              0% {
-                transform: rotate(0);
-              }
-              50% {
-                transform: rotate(180deg);
-              }
-              100% {
-                transform: rotate(360deg);
-              }
-            }
-
-            @media (min-width: 600px) {
-              .loading-screen img {
-                width: 7rem;
-              }
-            }
-          `}
-        </style>
       </div>
     );
   }

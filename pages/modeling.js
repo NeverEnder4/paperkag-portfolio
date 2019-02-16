@@ -26,7 +26,6 @@ class modeling extends React.Component {
   }
 
   static getInitialProps({ pathname }) {
-    console.log(pathname);
     return { currPage: pathname };
   }
 
