@@ -130,6 +130,7 @@ class VideoPlayer extends React.Component {
     const showButtonClass = showButton && !loading ? 'show-button' : '';
     const canHoverButton = hoverClass ? 'scale(1)' : 'scale(0)';
     const showTracksClass = tracksShowing ? 'show-tracks' : '';
+    const tracksButtonClass = tracksShowing ? 'open' : '';
     const loadingScreen = loading ? (
       <div className="loading-screen">
         <img
@@ -196,6 +197,7 @@ class VideoPlayer extends React.Component {
               className="small-button"
             >
               <img
+                className={`tracks ${tracksButtonClass}`}
                 src="/static/icons/video-player/track-list.svg"
                 alt="show videos icon"
               />
@@ -277,6 +279,15 @@ class VideoPlayer extends React.Component {
 
           .media-controls .small-button img {
             width: 100%;
+          }
+
+          .media-controls .small-button img.tracks {
+            transform: rotate(0deg);
+            transition: all 100ms ease-out;
+          }
+
+          .media-controls .small-button img.tracks.open {
+            transform: rotate(90deg);
           }
 
           .media-controls:hover {

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 const Header = ({ homePage }) => {
-  const animateLogoClass = homePage ? 'enter-float' : 'float';
+  const animateLogoClass = homePage ? 'enter-float' : '';
   return (
     <header className="header">
       <Link href="/" as="/">

@@ -47,10 +47,9 @@ const TrackList = ({
       .track {
         display: flex;
         font-size: 0.875rem;
-        border-top: 1px solid #fff;
+        border-top: 1px solid #444;
         background-color: #1d1d1d;
         box-shadow: 0 3px 3px rgba(0, 0, 0, 0.7);
-
         cursor: pointer;
         font-family: 'Baloo Thambi', 'Sans-Serif';
         text-align: center;
