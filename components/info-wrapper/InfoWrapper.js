@@ -1,8 +1,7 @@
 const InfoWrapper = ({ children }) => {
   return (
     <React.Fragment>
-      <div className="top-slant" />
-      <div className="info-wrapper">
+      <div className="info-wrapper grow-up">
         <div className="content">{children}</div>
       </div>
       <style jsx>{`
@@ -18,6 +17,24 @@ const InfoWrapper = ({ children }) => {
           transform: translateY(-9%);
           margin-bottom: -4rem;
         }
+
+        .grow-up {
+          transform: scaleY(0);
+          transform-origin: center;
+          animation: grow-up 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86)
+            forwards 0.8s;
+        }
+
+        @keyframes grow-up {
+          from {
+            transform: scaleX(0);
+          }
+
+          to {
+            transform: scaleX(1);
+          }
+        }
+
         @media (min-width: 700px) {
           .content {
             transform: translateY(-13%);

@@ -60,7 +60,7 @@ class art extends React.Component {
           imgSrc={modal.src}
           imgAlt={modal.alt}
         />
-        <NavHeader homePage={false} pageList={pageList} currPage={currPage} />
+        <NavHeader pageList={pageList} currPage={currPage} />
         <main>
           <div className="content-wrapper">
             <ImageDisplay

@@ -3,16 +3,19 @@ import Link from 'next/link';
 const SmallNav = ({ currPage, pages }) => {
   return (
     <nav>
-      <ul className="small-nav">
+      <ul className="small-nav slide-in-right">
         {pages.map((page, index) => {
           const currPageClass = page.path === currPage ? 'current-page' : '';
           const divider =
             index < pages.length - 1 ? <li className="nav-item">|</li> : null;
           return (
             <React.Fragment key={page.name}>
-              <Link prefetch href={page.path}>
-                <li className={`nav-item ${currPageClass}`}>{page.name}</li>
-              </Link>
+              <li className={`${currPageClass}`}>
+                <Link prefetch href={page.path}>
+                  <a className="nav-item link "> {page.name}</a>
+                </Link>
+              </li>
+
               {divider}
             </React.Fragment>
           );
@@ -25,14 +28,13 @@ const SmallNav = ({ currPage, pages }) => {
             display: flex;
             justify-content: space-around;
             width: 75vw;
-            margin: 0 auto;
+            margin: 0.7rem auto;
           }
 
-          .small-nav li {
+          .small-nav a {
             text-decoration: none;
             text-transform: uppercase;
             transition: opacity 100ms ease-out;
-            cursor: pointer;
           }
 
           .nav-item {
@@ -41,13 +43,30 @@ const SmallNav = ({ currPage, pages }) => {
             color: #1d1d1d;
           }
 
-          .small-nav li:hover,
-          .small-nav li:focus {
+          .small-nav a:hover,
+          .small-nav a:focus {
             opacity: 0.5;
           }
 
-          .nav-item.current-page {
+          .current-page .nav-item {
             opacity: 0.5;
+          }
+
+          .slide-in-right {
+            opacity: 0;
+            animation: slide-in-right 0.4s ease forwards 1.2s;
+          }
+
+          @keyframes slide-in-right {
+            from {
+              opacity: 0;
+              transform: translateX(-15px);
+            }
+
+            to {
+              opacity: 1;
+              transform: translateX(0px);
+            }
           }
 
           @media (min-width: 600px) {
@@ -60,6 +79,7 @@ const SmallNav = ({ currPage, pages }) => {
             .small-nav {
               width: 100%;
               flex: 1;
+              margin: 0 auto;
             }
             .nav-item {
               font-size: 2.3rem;

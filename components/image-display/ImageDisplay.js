@@ -8,12 +8,11 @@ class ImageDisplay extends React.Component {
     this.imgElementRef = [];
   }
   componentDidMount() {
-    this.setState((prevState, props) => ({ rendered: true }));
+    this.setState({ rendered: true });
 
     // If images get cached and no longer fire the onload event, this will set imagesLoaded state to true
     const imagesAlreadyLoaded = this.imgElementRef.some(img => img.complete);
-    if (imagesAlreadyLoaded)
-      this.setState((prevState, props) => ({ imagesLoaded: true }));
+    if (imagesAlreadyLoaded) this.setState({ imagesLoaded: true });
   }
 
   onImgLoadHandler = () => {
@@ -28,9 +27,11 @@ class ImageDisplay extends React.Component {
     return (
       <React.Fragment>
         <div className="display-container">
-          <h1 className="display-name">{displayName}</h1>
-          <h2 className="display-description">{description}</h2>
-          <ul className="image-gallery">
+          <h1 className="display-name slide-in-right">{displayName}</h1>
+          <h2 className="display-description slide-in-right delay">
+            {description}
+          </h2>
+          <ul className="image-gallery slide-up">
             {imagesArray.map((image, index) => {
               return (
                 <li
@@ -138,6 +139,44 @@ class ImageDisplay extends React.Component {
             font-size: 1rem;
           }
 
+          .slide-up {
+            opacity: 0;
+            animation: slide-up 0.5s ease forwards 1.3s;
+          }
+
+          .slide-in-right {
+            opacity: 0;
+            animation: slide-in-right 0.8s ease forwards 0.6s;
+          }
+
+          .slide-in-right.delay {
+            opacity: 0;
+            animation: slide-in-right 0.8s ease forwards;
+            animation-delay: 0.8s;
+          }
+
+          @keyframes slide-up {
+            from {
+              opacity: 0;
+              transform: translateY(15px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0px);
+            }
+          }
+
+          @keyframes slide-in-right {
+            from {
+              opacity: 0;
+              transform: translateX(-15px);
+            }
+            to {
+              opacity: 1;
+              transform: translateX(0px);
+            }
+          }
+
           @media (min-width: 600px) {
             .display-name {
               font-size: 1.875rem;
@@ -146,6 +185,7 @@ class ImageDisplay extends React.Component {
               font-size: 1.25rem;
             }
           }
+
           @media (min-width: 1025px) {
             .display-container {
               text-align: left;

@@ -141,7 +141,7 @@ class VideoPlayer extends React.Component {
     ) : null;
 
     return (
-      <div className="container">
+      <div className="container slide-up">
         <div className="video-display" onMouseOver={this.onMouseOverHandler}>
           {loadingScreen}
           <video
@@ -283,15 +283,31 @@ class VideoPlayer extends React.Component {
 
           .media-controls .small-button img.tracks {
             transform: rotate(0deg);
-            transition: all 100ms ease-out;
+            transition: all 200ms ease-out;
           }
 
           .media-controls .small-button img.tracks.open {
-            transform: rotate(90deg);
+            transform: rotate(180deg);
           }
 
           .media-controls:hover {
             opacity: 1;
+          }
+
+          .slide-up {
+            opacity: 0;
+            animation: slide-up 0.5s ease forwards 1s;
+          }
+
+          @keyframes slide-up {
+            from {
+              opacity: 0;
+              transform: translateY(15px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
           }
 
           @media (min-width: 1200px) {

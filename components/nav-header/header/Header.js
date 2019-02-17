@@ -1,17 +1,18 @@
 import Link from 'next/link';
 
-const Header = ({ homePage }) => {
-  const animateLogoClass = homePage ? 'enter-float' : '';
+const Header = () => {
   return (
     <header className="header">
       <Link href="/" as="/">
         <a className="logo-link">
           <div className="logo-text">
-            <span className="brand-name">PAPERKAG</span>
-            <span className="artist-name">by Kenyatta Furious Barnette</span>
+            <span className="brand-name fade-in-right">PAPERKAG</span>
+            <span className="artist-name grow-left">
+              by Kenyatta Furious Barnette
+            </span>
           </div>
           <img
-            className={`${animateLogoClass}`}
+            className="fade-in-right delay"
             src="https://apettigrew.imgix.net/static/kag-logo.png?w=100&format=compress"
             alt="PaperKag Logo"
           />
@@ -43,13 +44,25 @@ const Header = ({ homePage }) => {
           backface-visibility: hidden;
         }
 
-        .enter-float {
-          animation: enter 2s ease-out forwards,
-            float 5s infinite 2s ease-in-out;
+        .float {
+          animation: float 4s infinite 1.4s ease-in-out;
         }
 
-        .float {
-          animation: float 5s infinite ease-in-out;
+        .grow-left {
+          transform: scaleY(0);
+          transform-origin: right;
+          animation: grow-left cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s
+            forwards;
+          animation-delay: 0.4s;
+        }
+
+        .fade-in-right {
+          opacity: 0;
+          animation: fade-in-right ease 0.4s forwards;
+        }
+
+        .fade-in-right.delay {
+          animation-delay: 0.8s;
         }
 
         .logo-link .logo-text {
@@ -94,6 +107,27 @@ const Header = ({ homePage }) => {
             transform: translateY(0px);
           }
         }
+
+        @keyframes grow-left {
+          from {
+            transform: scaleY(0);
+          }
+          to {
+            transform: scaleY(1);
+          }
+        }
+
+        @keyframes fade-in-right {
+          from {
+            opacity: 0;
+            transform: translateX(-15px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
         @media (min-width: 1024px) {
           .logo-link {
             display: flex;

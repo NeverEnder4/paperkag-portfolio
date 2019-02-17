@@ -1,7 +1,8 @@
 const Banner = () => {
   return (
-    <div className="banner">
+    <div className="banner grow-right">
       <a
+        className="fade-in-right"
         href="https://www.vogue.it/photovogue/portfolio/?id=148007"
         target="_blank"
       >
@@ -11,7 +12,7 @@ const Banner = () => {
           alt="vogue logo"
         />
       </a>
-      <div className="banner-content">
+      <div className="banner-content fade-in-right">
         <h1 className="banner-title">Vogue Italia</h1>
         <p className="banner-description">
           YO! Catch me in Vogue Italia. Photographer, Anastasia Bigdan, shot me
@@ -70,6 +71,39 @@ const Banner = () => {
         .banner-description a:focus {
           color: rgba(250, 250, 250, 0.8);
           text-decoration: underline;
+        }
+
+        .fade-in-right {
+          opacity: 0;
+          animation: fade-in-right 0.5s ease forwards 1.6s;
+        }
+
+        .grow-right {
+          transform: scaleX(0);
+          transform-origin: left;
+          animation: grow-right 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86)
+            forwards 1s;
+        }
+
+        @keyframes fade-in-right {
+          from {
+            opacity: 0;
+            transform: translate(-15px);
+          }
+
+          to {
+            opacity: 1;
+            transform: translate(0px);
+          }
+        }
+        @keyframes grow-right {
+          from {
+            transform: scaleX(0);
+          }
+
+          to {
+            transform: scaleX(1);
+          }
         }
         @media (min-width: 600px) {
           .banner {

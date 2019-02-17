@@ -53,21 +53,21 @@ const TrackList = ({
         cursor: pointer;
         font-family: 'Baloo Thambi', 'Sans-Serif';
         text-align: center;
-        transform-origin: 100% 50%;
-        transform: scaleX(0);
+        transform-origin: right;
+        transform: translateY(-15px);
         opacity: 0;
       }
 
       .track-0.track {
-        transition: opacity 50ms 50ms ease-out, transform 150ms 50ms ease-out;
+        transition: opacity 150ms 50ms ease-out, transform 150ms 50ms ease-out;
       }
 
       .track-1.track {
-        transition: opacity 50ms 150ms ease-out, transform 150ms 150ms ease-out;
+        transition: opacity 150ms 150ms ease-out, transform 150ms 150ms ease-out;
       }
 
       .show-tracks .track {
-        transform: scaleX(1);
+        transform: translateY(0);
         opacity: 1;
       }
 

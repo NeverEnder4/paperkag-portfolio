@@ -3,7 +3,7 @@ import Link from 'next/link';
 const Menu = () => {
   return (
     <nav>
-      <ul className="menu">
+      <ul className="menu slide-up">
         <Link href="/art">
           <li className="menu-item-container art">
             <span className="text">Art</span>
@@ -28,7 +28,7 @@ const Menu = () => {
             padding: 10px;
             box-sizing: border-box;
             margin-bottom: 6rem;
-            margin-top: -4px;
+            margin-top: 3px;
           }
           .menu-item-container {
             backface-visibility: hidden;
@@ -76,6 +76,23 @@ const Menu = () => {
             bottom: 0%;
             text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
           }
+
+          .slide-up {
+            opacity: 0;
+            animation: slide-up 0.4s ease forwards 1s;
+          }
+
+          @keyframes slide-up {
+            from {
+              opacity: 0;
+              transform: translateY(15px);
+            }
+            to {
+              opacity: 1;
+              transform: translateX(0);
+            }
+          }
+
           @media (min-width: 1025px) {
             .menu {
               flex-direction: row;

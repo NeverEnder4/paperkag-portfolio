@@ -1,6 +1,6 @@
 const Bio = () => {
   return (
-    <article className="bio">
+    <article className="bio slide-in">
       <div className="bio-content">
         <img
           src="https://apettigrew.imgix.net/static/street-art-4.jpeg?w=300&format=compress"
@@ -52,7 +52,23 @@ const Bio = () => {
         .avatar {
           border-radius: 8px;
           width: 75px;
-          /* box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.8); */
+        }
+
+        .slide-in {
+          opacity: 0;
+          animation: slide-in 0.3s ease forwards 1.3s;
+        }
+
+        @keyframes slide-in {
+          from {
+            opacity: 0;
+            transform: translateY(15px);
+          }
+
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
         @media (min-width: 700px) {
           .bio {
