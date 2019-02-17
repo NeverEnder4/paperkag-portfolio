@@ -4,21 +4,27 @@ const Menu = () => {
   return (
     <nav>
       <ul className="menu slide-up">
-        <Link href="/art">
-          <li className="menu-item-container art">
-            <span className="text">Art</span>
-          </li>
-        </Link>
-        <Link href="/cinema">
-          <li className="menu-item-container cinema">
-            <span className="text">Cinema</span>
-          </li>
-        </Link>
-        <Link href="/modeling">
-          <li className="menu-item-container model">
-            <span className="text">Modeling</span>
-          </li>
-        </Link>
+        <li className="menu-item-container art">
+          <Link prefetch href="/art">
+            <a>
+              <span className="text">Art</span>
+            </a>
+          </Link>
+        </li>
+        <li className="menu-item-container cinema">
+          <Link prefetch href="/cinema">
+            <a>
+              <span className="text">Cinema</span>
+            </a>
+          </Link>
+        </li>
+        <li className="menu-item-container model">
+          <Link prefetch href="/modeling">
+            <a>
+              <span className="text">Modeling</span>
+            </a>
+          </Link>
+        </li>
 
         <style jsx>{`
           .menu {

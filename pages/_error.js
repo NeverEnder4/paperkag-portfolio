@@ -13,37 +13,37 @@ class Error extends React.Component {
             <img
               src="https://apettigrew.imgix.net/static/kag-logo.png?w=300&format=compress"
               alt="kag logo"
-              className="logo"
+              className="logo scale-spin-float"
             />
           </div>
-          <div className="content-container flex-center">
-            <div>
-              <h1 className="status">Error {this.props.statusCode}</h1>
+          <div className="content-container flex-center scale-center">
+            <div className="fade-up">
+              <h1 className="status ">Error {this.props.statusCode || null}</h1>
 
-              <h2 className="message">
+              <h2 className="message ">
                 Yo! Something went terribly wrong. Where would you like to go?
               </h2>
             </div>
 
-            <nav className="nav">
+            <nav className="nav fade-up">
               <ul>
                 <li>
-                  <Link href="/">
+                  <Link prefetch href="/">
                     <a>Home</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/art" passHref>
+                  <Link prefetch href="/art" passHref>
                     <a>Art</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/cinema" passHref>
+                  <Link prefetch href="/cinema" passHref>
                     <a>Cinema</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/modeling" passHref>
+                  <Link prefetch href="/modeling" passHref>
                     <a>Modeling</a>
                   </Link>
                 </li>
@@ -84,7 +84,6 @@ class Error extends React.Component {
 
             .logo {
               filter: drop-shadow(15px 10px 5px rgba(0, 0, 0, 0.7));
-              animation: float 5s infinite ease-in-out;
               width: 8rem;
             }
 
@@ -146,6 +145,25 @@ class Error extends React.Component {
               border-bottom: 1px solid #fff;
             }
 
+            .scale-spin-float {
+              transform: scale(0);
+              transform-origin: center;
+              animation: scale-spin 0.6s ease forwards,
+                float 5s infinite ease-in-out 0.7s;
+            }
+
+            .scale-center {
+              transform: scaleX(0);
+              transform-origin: center;
+              animation: scale-center 0.4s
+                cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards 0.4s;
+            }
+
+            .fade-up {
+              opacity: 0;
+              animation: fade-up 0.4s ease forwards 0.7s;
+            }
+
             @keyframes float {
               0% {
                 transform: translatey(0px);
@@ -155,6 +173,37 @@ class Error extends React.Component {
               }
               100% {
                 transform: translatey(0px);
+              }
+            }
+
+            @keyframes scale-spin {
+              from {
+                transform: scale(0) rotate(0deg);
+              }
+
+              to {
+                transform: scale(1) rotate(720deg);
+              }
+            }
+
+            @keyframes scale-center {
+              from {
+                transform: scaleX(0);
+              }
+
+              to {
+                transform: scaleX(1);
+              }
+            }
+
+            @keyframes fade-up {
+              from {
+                opacity: 0;
+                transform: translateY(15px);
+              }
+              to {
+                opacity: 1;
+                transform: translateY(0);
               }
             }
 

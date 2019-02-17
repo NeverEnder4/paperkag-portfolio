@@ -12,7 +12,7 @@ const SmallNav = ({ currPage, pages }) => {
             <React.Fragment key={page.name}>
               <li className={`${currPageClass}`}>
                 <Link prefetch href={page.path}>
-                  <a className="nav-item link "> {page.name}</a>
+                  <a className="nav-item link"> {page.name}</a>
                 </Link>
               </li>
 

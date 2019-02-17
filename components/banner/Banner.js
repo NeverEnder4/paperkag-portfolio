@@ -119,8 +119,8 @@ const Banner = () => {
         }
         @media (min-width: 900px) {
           .banner {
-            padding: 1rem 3rem;
-            justify-content: center;
+            padding: 0.75rem 0.75rem;
+            justify-content: flex-start;
             max-width: 1200px;
             margin: 0 auto;
             box-sizing: border-box;
@@ -128,21 +128,18 @@ const Banner = () => {
         }
 
         @media (min-width: 1200px) {
-          .banner {
-            padding: 1rem 2rem;
-          }
           .banner-img {
-            width: 7rem;
+            width: 6rem;
           }
           .banner-content {
             margin-left: 2rem;
           }
           .banner-title {
-            font-size: 2rem;
+            font-size: 1.75rem;
           }
           .banner-description {
-            font-size: 1.35rem;
-            padding-top: 1rem;
+            font-size: 1.3rem;
+            padding-top: 0.5rem;
           }
         }
       `}</style>
