@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "next start",
-    "dev": "next",
+    "dev": "nodemon server.js",
     "build": "next build",
     "deploy": "now"
   },

@@ -29,6 +29,16 @@ class modeling extends React.Component {
     return { currPage: pathname };
   }
 
+  componentDidMount() {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('/sw.js')
+        .catch(err => console.error('Service worker registration failed', err));
+    } else {
+      console.log('Service worker not supported');
+    }
+  }
+
   onImgClickHandler = e => {
     e.persist();
     this.setState((prevState, props) => ({
