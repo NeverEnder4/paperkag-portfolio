@@ -48,6 +48,11 @@ class cinema extends React.Component {
               background-size: contain;
               background-repeat: repeat-x;
             }
+
+            main {
+              position: relative;
+              z-index: 1;
+            }
           `}</style>
         </InfoWrapper>
       </PageWrapper>

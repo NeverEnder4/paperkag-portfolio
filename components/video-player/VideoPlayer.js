@@ -1,6 +1,7 @@
 import Slider from './slider/Slider';
 import ProgressBar from './progress-bar/ProgressBar';
 import TrackList from './track-list/TrackList';
+import TracksListButton from './track-list-button/TrackListButton';
 
 const defaultState = {
   muted: false,
@@ -77,12 +78,12 @@ class VideoPlayer extends React.Component {
   };
 
   onSelectTrackHandler = video => {
-    console.log(video);
     this.setState({
       currVideo: video,
       status: 'pause',
       loading: true,
     });
+
     this.videoElementRef.load();
   };
 
@@ -130,7 +131,6 @@ class VideoPlayer extends React.Component {
     const showButtonClass = showButton && !loading ? 'show-button' : '';
     const canHoverButton = hoverClass ? 'scale(1)' : 'scale(0)';
     const showTracksClass = tracksShowing ? 'show-tracks' : '';
-    const tracksButtonClass = tracksShowing ? 'open' : '';
     const loadingScreen = loading ? (
       <div className="loading-screen">
         <img
@@ -191,17 +191,10 @@ class VideoPlayer extends React.Component {
               currentTime={currentTime}
               onSliderChange={this.onSliderChange}
             />
-            <button
-              aria-label="show videos"
-              onClick={this.onTrackListClickHandler}
-              className="small-button"
-            >
-              <img
-                className={`tracks ${tracksButtonClass}`}
-                src="/static/icons/video-player/track-list.svg"
-                alt="show videos icon"
-              />
-            </button>
+            <TracksListButton
+              onTrackListClickHandler={this.onTrackListClickHandler}
+              tracksShowing={tracksShowing}
+            />
           </div>
         </div>
         <TrackList
@@ -279,15 +272,6 @@ class VideoPlayer extends React.Component {
 
           .media-controls .small-button img {
             width: 100%;
-          }
-
-          .media-controls .small-button img.tracks {
-            transform: rotate(0deg);
-            transition: all 200ms ease-out;
-          }
-
-          .media-controls .small-button img.tracks.open {
-            transform: rotate(180deg);
           }
 
           .media-controls:hover {

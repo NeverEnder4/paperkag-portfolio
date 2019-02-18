@@ -49,11 +49,11 @@ const InfoWrapper = ({ children }) => {
         }
         @media (min-width: 1200px) {
           .info-wrapper {
-            top: 7vh;
+            top: 11.5vh;
           }
 
           .content {
-            margin-bottom: -4rem;
+            margin-bottom: -2.5rem;
             transform: translateY(-15%);
           }
         }

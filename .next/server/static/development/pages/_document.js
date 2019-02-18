@@ -107,7 +107,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_document__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/document */ "next/document");
 /* harmony import */ var next_document__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_document__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "C:\\Users\\apett\\web-projects\\paperKAG\\portfolio\\pages\\_document.js";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -145,146 +144,52 @@ function (_Document) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("html", {
-        lang: "en-US",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 6
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["Head"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 7
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
-        charSet: "UTF-8",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 8
-        },
-        __self: this
+        lang: "en-US"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["Head"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
+        charSet: "UTF-8"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
         name: "viewport",
-        content: "width=device-width, initial-scale=1.0",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 10
-        },
-        __self: this
+        content: "width=device-width, initial-scale=1.0"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
         httpEquiv: "X-UA-Compatible",
-        content: "ie=edge",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 14
-        },
-        __self: this
+        content: "ie=edge"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
         rel: "manifest",
-        href: "/static/public/manifest.json",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 15
-        },
-        __self: this
+        href: "/static/public/manifest.json"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
         name: "description",
-        content: "The official portfolio of Kenyata Barnes.",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 17
-        },
-        __self: this
+        content: "The official portfolio of Kenyata Barnes."
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
         rel: "apple-touch-icon",
         sizes: "180x180",
-        href: "/static/public/apple-touch-icon.png",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 21
-        },
-        __self: this
+        href: "/static/public/apple-touch-icon.png"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
         rel: "icon",
         type: "image/png",
         sizes: "32x32",
-        href: "/static/public/favicon-32x32.png",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 26
-        },
-        __self: this
+        href: "/static/public/favicon-32x32.png"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
         rel: "icon",
         type: "image/png",
         sizes: "16x16",
-        href: "/static/public/favicon-16x16.png",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 32
-        },
-        __self: this
+        href: "/static/public/favicon-16x16.png"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
         rel: "manifest",
-        href: "%PUBLIC_URI%/site.webmanifest",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 38
-        },
-        __self: this
+        href: "%PUBLIC_URI%/site.webmanifest"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
         rel: "mask-icon",
         href: "/static/public/safari-pinned-tab.svg",
-        color: "#1d1d1d",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 39
-        },
-        __self: this
+        color: "#1d1d1d"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
         name: "msapplication-TileColor",
-        content: "#1d1d1d",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 44
-        },
-        __self: this
+        content: "#1d1d1d"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
         name: "theme-color",
-        content: "#1d1d1d",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 45
-        },
-        __self: this
+        content: "#1d1d1d"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
         href: "https://fonts.googleapis.com/css?family=Baloo+Thambi",
-        rel: "stylesheet",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 46
-        },
-        __self: this
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("body", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 51
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["Main"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 52
-        },
-        __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["NextScript"], {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 53
-        },
-        __self: this
-      })));
+        rel: "stylesheet"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("body", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["Main"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["NextScript"], null)));
     }
   }]);
 

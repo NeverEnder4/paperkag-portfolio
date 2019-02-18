@@ -24,7 +24,8 @@ const TrackList = ({
     })}
     <style jsx>{`
       .track-list {
-        position: relative;
+        position: absolute;
+        right: 0;
         z-index: 0;
         list-style-type: none;
         margin: 0;
@@ -33,14 +34,14 @@ const TrackList = ({
         flex-direction: column;
         color: rgba(250, 250, 250, 0.8);
         transform: translateY(-100%);
-        opacity: 0;
         visibility: hidden;
-        transition: all 50ms ease-out;
+        transition: all 0.3s cubic-bezier(0.62, 0.71, 0.64, 0.98);
+        max-width: 150px;
+        max-height: 150px;
       }
 
       .track-list.show-tracks {
         transform: translateY(0);
-        opacity: 1;
         visibility: visible;
       }
 
@@ -53,23 +54,27 @@ const TrackList = ({
         cursor: pointer;
         font-family: 'Baloo Thambi', 'Sans-Serif';
         text-align: center;
-        transform-origin: right;
-        transform: translateY(-15px);
-        opacity: 0;
+        transform-origin: top;
       }
 
-      .track-0.track {
-        transition: opacity 150ms 50ms ease-out, transform 150ms 50ms ease-out;
+      /* .track-0.track {
+        transition: transform 100ms 50ms ease-out;
       }
 
       .track-1.track {
-        transition: opacity 150ms 150ms ease-out, transform 150ms 150ms ease-out;
+        transition: transform 100ms 150ms ease-out;
+      }
+      .track-2.track {
+        transition: transform 100ms 250ms ease-out;
+      }
+      .track-3.track {
+        transition: transform 100ms 350ms ease-out;
       }
 
       .show-tracks .track {
         transform: translateY(0);
-        opacity: 1;
-      }
+        transition: transform 100ms 100ms ease-out;
+      } */
 
       .track:hover,
       .track:focus {
