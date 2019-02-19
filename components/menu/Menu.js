@@ -21,8 +21,8 @@ const Menu = () => {
           className="menu-item-container art"
         >
           <Link prefetch href="/art">
-            <a >
-              <span  className="text">Art</span>
+            <a>
+              <span className="text">Art</span>
             </a>
           </Link>
         </li>
@@ -72,19 +72,27 @@ const Menu = () => {
             cursor: pointer;
           }
 
+          .menu-item-container a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          }
+
           .menu li:hover,
           .menu li:focus {
             filter: grayscale(0%);
           }
 
           .menu-item-container.art {
-            background-image: url('https://apettigrew.imgix.net/static/paintings.jpg?auto=format&q=35&w=1000');
+            background-image: url('https://apettigrew.imgix.net/static/street-art-4.jpeg?auto=format&q=35&w=1000');
             background-size: cover;
             background-position: center;
           }
 
           .menu-item-container.cinema {
-            background-image: url('https://apettigrew.imgix.net/static/skating-2.jpeg?auto=format&q=35&w=1000');
+            background-image: url('https://apettigrew.imgix.net/static/kag-cinema.jpeg?auto=format&q=35&w=1000');
             background-size: cover;
             background-position: 50% 80%;
           }

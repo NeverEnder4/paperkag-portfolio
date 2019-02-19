@@ -18,12 +18,12 @@ const generateImageDataArray = imgArr => {
 
 const modelingImagesArray = [
   {
-    url: `https://apettigrew.imgix.net/static/kag-model.jpg`,
+    url: `https://apettigrew.imgix.net/static/kag-model-2.jpg`,
     alt:
       'Kenyatta standing in front of a brick wall with his hands in his pockets and a solemn look on his face.',
   },
   {
-    url: `https://apettigrew.imgix.net/static/kag-model-2.jpg`,
+    url: `https://apettigrew.imgix.net/static/kag-model.jpg`,
     alt: "A close up of Kenyatta's smiling face.",
   },
 ];
@@ -44,11 +44,11 @@ const streetArtImagesArray = [
     alt:
       'An image of Kenyata with his signature paper mask affixed to a yellow brick wall.',
   },
-  {
-    url: `https://apettigrew.imgix.net/static/street-art-4.jpeg`,
-    alt:
-      'An image of Kenyata with his signature paper mask resting on top of his head.',
-  },
+  // {
+  //   url: `https://apettigrew.imgix.net/static/street-art-4.jpeg`,
+  //   alt:
+  //     'An image of Kenyata with his signature paper mask resting on top of his head.',
+  // },
 ];
 
 const paintingsImagesArray = [

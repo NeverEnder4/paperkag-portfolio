@@ -281,10 +281,10 @@ class VideoPlayer extends React.Component {
             background-color: rgba(0, 0, 0, 0.8);
             display: flex;
             align-items: center;
-            justify-content: space-around;
+            justify-content: space-between;
             width: 100%;
             height: 30px;
-            padding: 2px;
+            padding: 2px 2px 2px 1rem;
             position: absolute;
             right: 0;
             opacity: 0.35;
@@ -336,6 +336,7 @@ class VideoPlayer extends React.Component {
 
             .media-controls {
               opacity: 1;
+              padding: 2px 2px 2px 2rem;
             }
           }
         `}</style>

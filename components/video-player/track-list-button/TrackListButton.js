@@ -71,6 +71,7 @@ const TrackListButton = ({ onTrackListClickHandler, tracksShowing }) => {
           />
         </g>
       </svg>
+      <span>VIDEOS</span>
       <style jsx>{`
         svg {
           boder-top: 2px solid #fff;
@@ -78,10 +79,15 @@ const TrackListButton = ({ onTrackListClickHandler, tracksShowing }) => {
         }
 
         .tracks-list-button {
-          width: 4rem;
-          height: 4rem;
           display: flex;
           justify-content: center;
+          align-items: center;
+        }
+
+        .tracks-list-button span {
+          font-family: 'Baloo Thambi', 'Sans Serif';
+          font-size: 1rem;
+          color: #ffffff;
         }
 
         .line-top,

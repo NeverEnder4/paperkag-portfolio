@@ -33,6 +33,14 @@ class ImageDisplay extends React.Component {
           </h2>
           <ul className="image-gallery slide-up">
             {imagesArray.map((image, index) => {
+              const positionImageCenterBottom =
+                displayName === 'Skateboarding' && index === 1
+                  ? 'position-image-center-bottom'
+                  : '';
+              const positionImageCenterTop =
+                displayName === 'Photo Shoots' && index === 1
+                  ? 'position-image-center-top'
+                  : '';
               return (
                 <li
                   key={index}
@@ -40,11 +48,11 @@ class ImageDisplay extends React.Component {
                   data-imgsrc={`${image.url}?w=1000&format=compress`}
                   data-imgalt={image.alt}
                   onClick={onImgClick}
-                  className={`image-item ${showImagesClass}`}
+                  className={`image-item ${showImagesClass} `}
                 >
                   <img
                     ref={element => this.imgElementRef.push(element)}
-                    className="img-item-preview"
+                    className={`img-item-preview ${positionImageCenterBottom} ${positionImageCenterTop}`}
                     onLoad={this.onImgLoadHandler}
                     srcSet={`${image.srcSetLg}, ${image.srcSetMd}, ${
                       image.srcSetSm
@@ -84,6 +92,14 @@ class ImageDisplay extends React.Component {
             font-family: 'Baloo Thambi', 'Sans-Serif';
             font-size: 1.2rem;
             text-align: center;
+          }
+
+          .position-image-center-bottom {
+            object-position: 50% 80%;
+          }
+
+          .position-image-center-top {
+            object-position: 50% 20%;
           }
 
           .image-gallery li {
