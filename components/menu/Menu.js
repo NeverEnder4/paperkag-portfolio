@@ -1,24 +1,47 @@
 import Link from 'next/link';
 
+import { logEvent } from '../../static/utils/analytics';
+
+const analyzeMenuClickHandler = e => {
+  logEvent(
+    'Navigation',
+    'From Home Page',
+    `To ${e.currentTarget.dataset['route']}`,
+    1,
+  );
+};
+
 const Menu = () => {
   return (
     <nav>
       <ul className="menu slide-up">
-        <li className="menu-item-container art">
+        <li
+          onClick={analyzeMenuClickHandler}
+          data-route="/art"
+          className="menu-item-container art"
+        >
           <Link prefetch href="/art">
-            <a>
-              <span className="text">Art</span>
+            <a >
+              <span  className="text">Art</span>
             </a>
           </Link>
         </li>
-        <li className="menu-item-container cinema">
+        <li
+          onClick={analyzeMenuClickHandler}
+          data-route="/cinema"
+          className="menu-item-container cinema"
+        >
           <Link prefetch href="/cinema">
             <a>
               <span className="text">Cinema</span>
             </a>
           </Link>
         </li>
-        <li className="menu-item-container model">
+        <li
+          onClick={analyzeMenuClickHandler}
+          data-route="/modeling"
+          className="menu-item-container model"
+        >
           <Link prefetch href="/modeling">
             <a>
               <span className="text">Modeling</span>

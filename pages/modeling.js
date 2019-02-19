@@ -10,19 +10,41 @@ import PageWrapper from '../components/page-wrapper/PageWrapper';
 
 import pageList from '../static/seed-data/pages';
 import { modelingImages, skatingImages } from '../static/seed-data/images';
+import registerServiceWorker from '../static/utils/serviceWorkerUtils';
+import {
+  initGA,
+  logEvent,
+  extractFileNameFromUrl,
+} from '../static/utils/analytics';
+
+const analyzeImageClick = e => {
+  const remove = 'https://apettigrew.imgix.net/static/';
+  const fileName = extractFileNameFromUrl(
+    e.currentTarget.dataset['url'],
+    remove,
+  );
+  logEvent(
+    `Image Display on ${window.location.pathname}`,
+    'Image Click',
+    fileName,
+    1,
+  );
+};
 
 import 'normalize.css';
+
+const defaultState = {
+  displayModal: false,
+  modal: {
+    src: '',
+    alt: '',
+  },
+};
 
 class modeling extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      displayModal: false,
-      modal: {
-        src: '',
-        alt: '',
-      },
-    };
+    this.state = { ...defaultState };
   }
 
   static getInitialProps({ pathname }) {
@@ -30,17 +52,13 @@ class modeling extends React.Component {
   }
 
   componentDidMount() {
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker
-        .register('/sw.js')
-        .catch(err => console.error('Service worker registration failed', err));
-    } else {
-      console.log('Service worker not supported');
-    }
+    registerServiceWorker();
+    initGA();
   }
 
   onImgClickHandler = e => {
     e.persist();
+    analyzeImageClick(e);
     this.setState((prevState, props) => ({
       displayModal: true,
       modal: {

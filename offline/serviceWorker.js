@@ -1,5 +1,5 @@
 const CACHE_NAME = 'page-cache';
-const urlsToCache = ['/', '/art', '/modeling'];
+const urlsToCache = ['/', '/cinema', '/art', '/modeling'];
 
 self.addEventListener('install', event => {
   const preLoaded = caches

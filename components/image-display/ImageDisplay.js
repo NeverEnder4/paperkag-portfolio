@@ -36,6 +36,7 @@ class ImageDisplay extends React.Component {
               return (
                 <li
                   key={index}
+                  data-url={`${image.url}`}
                   data-imgsrc={`${image.url}?w=1000&format=compress`}
                   data-imgalt={image.alt}
                   onClick={onImgClick}

@@ -1,10 +1,27 @@
 import Link from 'next/link';
 
+import { logEvent } from '../../../static/utils/analytics';
+
+const analyzeMenuClickHandler = e => {
+  if (window.location.pathname !== e.currentTarget.dataset['route']) {
+    logEvent(
+      'Navigation',
+      `From ${window.location.pathname}`,
+      `To ${e.currentTarget.dataset['route']}`,
+      1,
+    );
+  }
+};
+
 const Header = () => {
   return (
     <header className="header">
       <Link href="/" as="/">
-        <a className="logo-link">
+        <a
+          data-route="/"
+          onClick={analyzeMenuClickHandler}
+          className="logo-link"
+        >
           <div className="logo-text">
             <span className="brand-name fade-in-right">PAPERKAG</span>
             <span className="artist-name grow-left">

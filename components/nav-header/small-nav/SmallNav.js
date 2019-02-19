@@ -1,4 +1,14 @@
-import Link from 'next/link';
+import Link from 'next/link'; 
+import {logEvent} from '../../../static/utils/analytics'
+
+const analyzeMenuClickHandler = e => {
+  logEvent(
+    'Navigation',
+    `From ${window.location.pathname}`,
+    `To ${e.currentTarget.dataset['route']}`,
+    1,
+  );
+};
 
 const SmallNav = ({ currPage, pages }) => {
   return (
@@ -12,7 +22,7 @@ const SmallNav = ({ currPage, pages }) => {
             <React.Fragment key={page.name}>
               <li className={`${currPageClass}`}>
                 <Link prefetch href={page.path}>
-                  <a className="nav-item link"> {page.name}</a>
+                  <a onClick={analyzeMenuClickHandler} data-route={page.path} className="nav-item link"> {page.name}</a>
                 </Link>
               </li>
 

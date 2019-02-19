@@ -3,10 +3,12 @@ import ProgressBar from './progress-bar/ProgressBar';
 import TrackList from './track-list/TrackList';
 import TracksListButton from './track-list-button/TrackListButton';
 
+import { logEvent, extractFileNameFromUrl } from '../../static/utils/analytics';
+
 const defaultState = {
   muted: false,
   status: 'pause',
-  showButton: false,
+  showPlayButton: false,
   currVideo: 0,
   volume: 30,
   loading: true,
@@ -14,6 +16,7 @@ const defaultState = {
   tracksShowing: false,
   duration: 0,
   currentTime: 0,
+  playButtonClickedOnce: false,
 };
 
 class VideoPlayer extends React.Component {
@@ -21,16 +24,36 @@ class VideoPlayer extends React.Component {
     super(props);
     this.videoElementRef = null;
     this.sourceElementRef = null;
-    this.state = defaultState;
+    this.state = { ...defaultState };
   }
 
   componentDidMount() {
     this.videoElementRef.controls = false;
   }
 
-  onPlayHandler = () => {
+  analyzeVideoPlays = () => {
+    const remove = 'https://apettigrew.imgix.net/static/videos/';
+    const fileName = extractFileNameFromUrl(this.sourceElementRef.src, remove);
+    logEvent('Video Player', 'Play From Start', fileName, 1);
+  };
+
+  analyzeVideoPlayThroughs = () => {
+    const remove = 'https://apettigrew.imgix.net/static/videos/';
+    const fileName = extractFileNameFromUrl(this.sourceElementRef.src, remove);
+    logEvent('Video Player', 'Played To End', fileName, 1);
+  };
+
+  onPlayHandler = e => {
     this.videoElementRef.play();
-    this.setState({ status: 'play', showButton: false, hoverClass: false });
+
+    if (this.state.playButtonClickedOnce === false) {
+      this.setState((prevState, props) => ({
+        playButtonClickedOnce: true,
+      }));
+    }
+    this.setState({ status: 'play', showPlayButton: false, hoverClass: false });
+
+    if (this.videoElementRef.currentTime === 0) this.analyzeVideoPlays(e);
   };
 
   onNoLongerPauseHandler = () => {
@@ -43,13 +66,13 @@ class VideoPlayer extends React.Component {
 
   onPauseHandler = () => {
     this.videoElementRef.pause();
-    this.setState({ status: 'pause', showButton: false });
+    this.setState({ status: 'pause', showPlayButton: false });
   };
 
   onStopHandler = () => {
     this.videoElementRef.pause();
     this.videoElementRef.currentTime = 0;
-    this.setState({ status: 'stop', showButton: false });
+    this.setState({ status: 'stop', showPlayButton: false });
   };
 
   onMuteHandler = () => {
@@ -63,15 +86,16 @@ class VideoPlayer extends React.Component {
   };
 
   onVideoEndHandler = () => {
+    this.analyzeVideoPlayThroughs();
     this.videoElementRef.pause();
     this.videoElementRef.currentTime = 0;
-    this.setState({ status: 'pause', showButton: true, hoverClass: true });
+    this.setState({ status: 'pause', showPlayButton: true, hoverClass: true });
   };
 
   onCanPlayHandler = () => {
     this.setState((prevState, props) => ({
       loading: false,
-      showButton: true,
+      showPlayButton: true,
       duration: this.videoElementRef.duration,
       currentTime: this.videoElementRef.currentTime,
     }));
@@ -118,7 +142,7 @@ class VideoPlayer extends React.Component {
     const { videos } = this.props;
     const {
       status,
-      showButton,
+      showPlayButton,
       currVideo,
       volume,
       muted,
@@ -127,10 +151,12 @@ class VideoPlayer extends React.Component {
       tracksShowing,
       duration,
       currentTime,
+      playButtonClickedOnce,
     } = this.state;
-    const showButtonClass = showButton && !loading ? 'show-button' : '';
+    const showPlayButtonClass = showPlayButton && !loading ? 'show-button' : '';
     const canHoverButton = hoverClass ? 'scale(1)' : 'scale(0)';
     const showTracksClass = tracksShowing ? 'show-tracks' : '';
+    const videoPlayerSlideUpClass = playButtonClickedOnce ? '' : 'slide-up';
     const loadingScreen = loading ? (
       <div className="loading-screen">
         <img
@@ -141,7 +167,7 @@ class VideoPlayer extends React.Component {
     ) : null;
 
     return (
-      <div className="container slide-up">
+      <div className={`container ${videoPlayerSlideUpClass}`}>
         <div className="video-display" onMouseOver={this.onMouseOverHandler}>
           {loadingScreen}
           <video
@@ -163,7 +189,7 @@ class VideoPlayer extends React.Component {
             {status === 'pause' ? (
               <button
                 aria-label="play button"
-                className={`play center-button ${showButtonClass}`}
+                className={`play center-button ${showPlayButtonClass}`}
                 onClick={this.onPlayHandler}
               >
                 <img src="/static/icons/video-player/play.svg" alt="play" />
@@ -171,7 +197,7 @@ class VideoPlayer extends React.Component {
             ) : (
               <button
                 aria-label="pause button"
-                className={`play center-button ${showButtonClass}`}
+                className={`play center-button ${showPlayButtonClass}`}
                 onClick={this.onPauseHandler}
               >
                 <img src="/static/icons/video-player/pause.svg" alt="pause" />
@@ -280,7 +306,7 @@ class VideoPlayer extends React.Component {
 
           .slide-up {
             opacity: 0;
-            animation: slide-up 0.5s ease forwards 1s;
+            animation: slide-up 0.5s ease 1 forwards 1s;
           }
 
           @keyframes slide-up {

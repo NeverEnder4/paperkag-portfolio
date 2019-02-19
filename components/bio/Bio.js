@@ -7,18 +7,11 @@ const Bio = () => {
           className="avatar "
           alt="avatar"
         />
-        <h1 className="name">Kenyatta Barnette</h1>
+        <h1 className="name">Kenyatta Furious Barnette</h1>
         <h2 className="location">Los Angeles</h2>
-        <p className="center ph3">
-          Lorem ipsum dolor sit amet consectetur ading elit. Unde, totam asci.
-          Facilis voluptas porro eos lium enim nihil impedit dicta odit tempora,
-          fuga harum corporis non blanditiis fugiat voluptates! Nostrum?
-        </p>
-        <p className="center ph3">
-          Lorem ipsum dolor sit amet consectetur ading elit. Unde, totam asci.
-          Facilis voluptas porro eos lium enim nihil impedit dicta odit tempora,
-          fuga harum corporis non blanditiis fugiat voluptates! Nostrum?
-        </p>
+        <p className="center ph3">Founder and art director of PaperKAG.</p>
+        <p className="center ph3">Based Out of Los Angeles, Ca.</p>
+        <p className="center ph3">Killin Art Galleries World Wide!</p>
       </div>
       <style jsx>{`
         .bio {
@@ -45,8 +38,11 @@ const Bio = () => {
           font-size: 0.875rem;
           line-height: 1.4;
           margin: 1rem auto;
+          margin-top: 2rem;
           padding: 0 1rem;
-          letter-spacing: 0.3px;
+          letter-spacing: 0.4px;
+          font-family: 'Baloo Thambi';
+          text-transform: uppercase;
         }
 
         .avatar {

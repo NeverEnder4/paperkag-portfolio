@@ -1,6 +1,6 @@
 {
   "devFiles": [
-    "static/development/dll/dll_dfeec8dbc671f0ece1ca.js"
+    "static/development/dll/dll_724ae78efd21d9b28c3a.js"
   ],
   "pages": {
     "/_error": [
@@ -17,12 +17,6 @@
       "static/chunks/styles.js",
       "static/runtime/main.js"
     ],
-    "/modeling": [
-      "static/runtime/webpack.js",
-      "static/css/styles.chunk.css",
-      "static/chunks/styles.js",
-      "static/runtime/main.js"
-    ],
     "/index": [
       "static/runtime/webpack.js",
       "static/css/styles.chunk.css",
@@ -30,6 +24,12 @@
       "static/runtime/main.js"
     ],
     "/art": [
+      "static/runtime/webpack.js",
+      "static/css/styles.chunk.css",
+      "static/chunks/styles.js",
+      "static/runtime/main.js"
+    ],
+    "/modeling": [
       "static/runtime/webpack.js",
       "static/css/styles.chunk.css",
       "static/chunks/styles.js",

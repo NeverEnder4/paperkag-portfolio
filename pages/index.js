@@ -7,17 +7,15 @@ import Footer from '../components/footer/Footer';
 import InfoWrapper from '../components/info-wrapper/InfoWrapper';
 import PageWrapper from '../components/page-wrapper/PageWrapper';
 
+import registerServiceWorker from '../static/utils/serviceWorkerUtils';
+import { initGA } from '../static/utils/analytics';
+
 import 'normalize.css';
 
 class index extends React.Component {
   componentDidMount() {
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker
-        .register('/sw.js')
-        .catch(err => console.error('Service worker registration failed', err));
-    } else {
-      console.log('Service worker not supported');
-    }
+    registerServiceWorker();
+    initGA();
   }
   render() {
     return (

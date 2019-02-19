@@ -6,11 +6,32 @@ import Contact from '../components/contact/Contact';
 import Footer from '../components/footer/Footer';
 import InfoWrapper from '../components/info-wrapper/InfoWrapper';
 import PageWrapper from '../components/page-wrapper/PageWrapper';
-
 import pageList from '../static/seed-data/pages';
+
 import { streetArtImages, paintingsImages } from '../static/seed-data/images';
 
+import registerServiceWorker from '../static/utils/serviceWorkerUtils';
+import {
+  initGA,
+  logEvent,
+  extractFileNameFromUrl,
+} from '../static/utils/analytics';
+
 import 'normalize.css';
+
+const analyzeImageClick = e => {
+  const remove = 'https://apettigrew.imgix.net/static/';
+  const fileName = extractFileNameFromUrl(
+    e.currentTarget.dataset['url'],
+    remove,
+  );
+  logEvent(
+    `Image Display on ${window.location.pathname}`,
+    'Image Click',
+    fileName,
+    1,
+  );
+};
 
 class art extends React.Component {
   constructor(props) {
@@ -29,19 +50,13 @@ class art extends React.Component {
   }
 
   componentDidMount() {
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker
-        .register('/sw.js')
-        .catch(err => console.error('Service worker registration failed', err));
-    } else {
-      console.log('Service worker not supported');
-    }
+    registerServiceWorker();
+    initGA();
   }
 
   onImgClickHandler = e => {
-    console.log('clicked');
     e.persist();
-
+    analyzeImageClick(e);
     this.setState((prevState, props) => ({
       displayModal: true,
       modal: {
