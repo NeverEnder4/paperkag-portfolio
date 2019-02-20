@@ -52,7 +52,7 @@ const Bio = () => {
 
         .slide-in {
           opacity: 0;
-          animation: slide-in 0.3s ease forwards 1.3s;
+          animation: slide-in 100ms ease forwards 1.1s;
         }
 
         @keyframes slide-in {

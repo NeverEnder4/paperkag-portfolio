@@ -21,8 +21,8 @@ const InfoWrapper = ({ children }) => {
         .grow-up {
           transform: scaleY(0);
           transform-origin: center;
-          animation: grow-up 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86)
-            forwards 0.8s;
+          animation: grow-up 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86)
+            forwards 600ms;
         }
 
         @keyframes grow-up {

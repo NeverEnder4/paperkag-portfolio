@@ -75,14 +75,14 @@ const Banner = () => {
 
         .fade-in-right {
           opacity: 0;
-          animation: fade-in-right 0.5s ease forwards 1.6s;
+          animation: fade-in-right 300ms ease forwards 1.2s;
         }
 
         .grow-right {
           transform: scaleX(0);
           transform-origin: left;
-          animation: grow-right 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86)
-            forwards 1s;
+          animation: grow-right 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86)
+            forwards 800ms;
         }
 
         @keyframes fade-in-right {

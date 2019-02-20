@@ -61,25 +61,21 @@ const Header = () => {
           backface-visibility: hidden;
         }
 
-        .float {
-          animation: float 4s infinite 1.4s ease-in-out;
-        }
-
         .grow-left {
           transform: scaleY(0);
           transform-origin: right;
           animation: grow-left cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.3s
             forwards;
-          animation-delay: 0.4s;
+          animation-delay: 200ms;
         }
 
         .fade-in-right {
           opacity: 0;
-          animation: fade-in-right ease 0.4s forwards;
+          animation: fade-in-right ease 200ms forwards;
         }
 
         .fade-in-right.delay {
-          animation-delay: 0.8s;
+          animation-delay: 600ms;
         }
 
         .logo-link .logo-text {

@@ -313,7 +313,7 @@ class VideoPlayer extends React.Component {
 
           .slide-up {
             opacity: 0;
-            animation: slide-up 0.5s ease 1 forwards 1s;
+            animation: slide-up 300ms ease 1 forwards 800ms;
           }
 
           @keyframes slide-up {

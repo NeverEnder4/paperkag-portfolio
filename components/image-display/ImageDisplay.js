@@ -168,18 +168,18 @@ class ImageDisplay extends React.Component {
 
           .slide-up {
             opacity: 0;
-            animation: slide-up 0.5s ease forwards 1.3s;
+            animation: slide-up 300ms ease forwards 1.1s;
           }
 
           .slide-in-right {
             opacity: 0;
-            animation: slide-in-right 0.8s ease forwards 0.6s;
+            animation: slide-in-right 600ms ease forwards 400ms;
           }
 
           .slide-in-right.delay {
             opacity: 0;
-            animation: slide-in-right 0.8s ease forwards;
-            animation-delay: 0.8s;
+            animation: slide-in-right 600ms ease forwards;
+            animation-delay: 600ms;
           }
 
           @keyframes slide-up {

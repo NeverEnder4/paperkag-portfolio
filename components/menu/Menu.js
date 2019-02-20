@@ -116,7 +116,7 @@ const Menu = () => {
 
           .slide-up {
             opacity: 0;
-            animation: slide-up 0.4s ease forwards 1s;
+            animation: slide-up 200ms ease forwards 800ms;
           }
 
           @keyframes slide-up {
