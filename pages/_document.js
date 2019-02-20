@@ -6,12 +6,12 @@ export default class MyDocument extends Document {
       <html lang="en-US">
         <Head>
           <meta charSet="UTF-8" />
-
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           />
           <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
+          {/* pwa tags */}
           <link rel="manifest" href="/static/public/manifest.json" />
 
           <meta
@@ -43,10 +43,18 @@ export default class MyDocument extends Document {
           />
           <meta name="msapplication-TileColor" content="#1d1d1d" />
           <meta name="theme-color" content="#1d1d1d" />
+          {/* google site verification */}
+          <meta
+            name="google-site-verification"
+            content="vEU9ahHwZqaqcbm_EQb7JfOM_IMv9S1WBFS3yfyVE2U"
+          />
+          {/* google fonts link */}
           <link
             href="https://fonts.googleapis.com/css?family=Baloo+Thambi"
             rel="stylesheet"
           />
+          {/* canonical url */}
+          <link rel="canonical" href="http://www.paperkag.com/" />
         </Head>
         <body>
           <Main />

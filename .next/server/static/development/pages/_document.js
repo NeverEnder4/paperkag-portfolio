@@ -186,9 +186,15 @@ function (_Document) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
         name: "theme-color",
         content: "#1d1d1d"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
+        name: "google-site-verification",
+        content: "vEU9ahHwZqaqcbm_EQb7JfOM_IMv9S1WBFS3yfyVE2U"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
         href: "https://fonts.googleapis.com/css?family=Baloo+Thambi",
         rel: "stylesheet"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
+        rel: "canonical",
+        href: "http://www.paperkag.com/"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("body", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["Main"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_document__WEBPACK_IMPORTED_MODULE_1__["NextScript"], null)));
     }
   }]);

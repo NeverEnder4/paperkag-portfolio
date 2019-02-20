@@ -16,6 +16,12 @@ app.prepare().then(() => {
     if (pathname === '/sw.js') {
       res.setHeader('content-type', 'text/javascript');
       createReadStream('./offline/serviceWorker.js').pipe(res);
+    } else if (pathname === '/robots.txt') {
+      res.setHeader('content-type', 'text/plain');
+      createReadStream('./robots.txt').pipe(res);
+    } else if (pathname === '/sitemap.xml') {
+      res.setHeader('content-type', 'application/xml');
+      createReadStream('./sitemap.xml').pipe(res);
     } else {
       handle(req, res, parsedUrl);
     }
