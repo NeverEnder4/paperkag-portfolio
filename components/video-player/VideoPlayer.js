@@ -106,6 +106,7 @@ class VideoPlayer extends React.Component {
       currVideo: video,
       status: 'pause',
       loading: true,
+      tracksShowing: false,
     });
 
     this.videoElementRef.load();
@@ -157,6 +158,7 @@ class VideoPlayer extends React.Component {
     const canHoverButton = hoverClass ? 'scale(1)' : 'scale(0)';
     const showTracksClass = tracksShowing ? 'show-tracks' : '';
     const videoPlayerSlideUpClass = playButtonClickedOnce ? '' : 'slide-up';
+    const mediaControlsOpacity = status === 'play' ? '' : 'opaque';
     const loadingScreen = loading ? (
       <div className="loading-screen">
         <img
@@ -204,7 +206,7 @@ class VideoPlayer extends React.Component {
               </button>
             )}
           </div>
-          <div className="media-controls">
+          <div className={`media-controls ${mediaControlsOpacity}`}>
             <Slider
               onMuteHandler={this.onMuteHandler}
               muted={muted}
@@ -235,6 +237,7 @@ class VideoPlayer extends React.Component {
             margin: 0 auto;
             margin-top: 0;
             margin-bottom: 6rem;
+            position: relative;
           }
           .video-display {
             position: relative;
@@ -290,6 +293,10 @@ class VideoPlayer extends React.Component {
             opacity: 0.35;
             bottom: 0;
             transition: opacity 300ms ease-out;
+          }
+
+          .media-controls.opaque {
+            opacity: 1 !important;
           }
 
           .media-controls .small-button {

@@ -49,13 +49,6 @@ class Slider extends React.Component {
             width: 2.5rem;
           }
 
-          .slider:hover input[type='range'],
-          .slider:focus input[type='range'] {
-            width: 50px;
-            opacity: 1;
-            visibility: visible;
-          }
-
           .small-button img {
             width: 100%;
           }
@@ -184,6 +177,22 @@ class Slider extends React.Component {
 
             .slider:hover input[type='range'],
             .slider:focus input[type='range'] {
+              width: 8rem;
+              opacity: 1;
+              visibility: visible;
+            }
+          }
+        `}</style>
+        <style jsx global>{`
+          .media-controls:hover .slider input[type='range'],
+          .media-controls:focus .slider input[type='range'] {
+            width: 50px;
+            opacity: 1;
+            visibility: visible;
+          }
+          @media (min-width: 1000px) {
+            .media-controls:hover .slider input[type='range'],
+            .media-controls:focus .slider input[type='range'] {
               width: 8rem;
               opacity: 1;
               visibility: visible;

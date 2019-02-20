@@ -35,7 +35,7 @@ const TrackList = ({
         color: rgba(250, 250, 250, 0.8);
         transform: translateY(-100%);
         visibility: hidden;
-        transition: all 0.3s cubic-bezier(0.62, 0.71, 0.64, 0.98);
+        transition: all 185ms cubic-bezier(0.62, 0.71, 0.64, 0.98);
         max-width: 150px;
         max-height: 150px;
       }

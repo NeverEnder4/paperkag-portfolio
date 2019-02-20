@@ -33,6 +33,7 @@ class ImageDisplay extends React.Component {
           </h2>
           <ul className="image-gallery slide-up">
             {imagesArray.map((image, index) => {
+              const isEvenNumber = imagesArray.length % 2 === 0;
               const positionImageCenterBottom =
                 displayName === 'Skateboarding' && index === 1
                   ? 'position-image-center-bottom'
@@ -41,6 +42,8 @@ class ImageDisplay extends React.Component {
                 displayName === 'Photo Shoots' && index === 1
                   ? 'position-image-center-top'
                   : '';
+
+              const imageWidth = isEvenNumber ? 'w-49-per' : 'w-32-per';
               return (
                 <li
                   key={index}
@@ -48,11 +51,11 @@ class ImageDisplay extends React.Component {
                   data-imgsrc={`${image.url}?w=1000&format=compress`}
                   data-imgalt={image.alt}
                   onClick={onImgClick}
-                  className={`image-item ${showImagesClass} `}
+                  className={`image-item ${showImagesClass} ${imageWidth}`}
                 >
                   <img
                     ref={element => this.imgElementRef.push(element)}
-                    className={`img-item-preview ${positionImageCenterBottom} ${positionImageCenterTop}`}
+                    className={`img-item-preview ${positionImageCenterBottom} ${positionImageCenterTop} `}
                     onLoad={this.onImgLoadHandler}
                     srcSet={`${image.srcSetLg}, ${image.srcSetMd}, ${
                       image.srcSetSm
@@ -102,10 +105,17 @@ class ImageDisplay extends React.Component {
             object-position: 50% 20%;
           }
 
+          .w-49-per {
+            width: 100%;
+          }
+
+          .w-32-per {
+            width: 100%;
+          }
+
           .image-gallery li {
             position: relative;
             margin-bottom: 1rem;
-            width: 100%;
             height: 35vh;
             min-height: 200px;
             cursor: pointer;
@@ -216,11 +226,19 @@ class ImageDisplay extends React.Component {
               display: flex;
               flex-direction: row;
               flex-wrap: wrap;
+              justify-content: space-between;
             }
 
             .image-gallery li {
-              width: 48.3%;
               margin: 5px 5px;
+            }
+
+            .w-49-per {
+              width: 49% !important;
+            }
+
+            .w-32-per {
+              width: 32% !important;
             }
           }
         `}</style>

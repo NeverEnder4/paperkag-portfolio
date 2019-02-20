@@ -71,7 +71,7 @@ const TrackListButton = ({ onTrackListClickHandler, tracksShowing }) => {
           />
         </g>
       </svg>
-      <span>VIDEOS</span>
+      <span>PLAYLIST</span>
       <style jsx>{`
         svg {
           boder-top: 2px solid #fff;
@@ -88,13 +88,14 @@ const TrackListButton = ({ onTrackListClickHandler, tracksShowing }) => {
           font-family: 'Baloo Thambi', 'Sans Serif';
           font-size: 1rem;
           color: #ffffff;
+          margin-left: -10px;
         }
 
         .line-top,
         .line-bottom {
           transform: translate(0, 0);
           transform-origin: center;
-          transition: all 0.2s cubic-bezier(0.44, 0.27, 0.51, 1);
+          transition: all 100ms cubic-bezier(0.44, 0.27, 0.51, 1);
         }
 
         .line-top.animate {
@@ -108,7 +109,7 @@ const TrackListButton = ({ onTrackListClickHandler, tracksShowing }) => {
         .line-middle {
           transform: scaleY(1);
           transform-origin: center;
-          transition: all 0.2s cubic-bezier(0.44, 0.27, 0.51, 1);
+          transition: all 100ms cubic-bezier(0.44, 0.27, 0.51, 1);
         }
 
         .line-middle.animate {
@@ -118,15 +119,15 @@ const TrackListButton = ({ onTrackListClickHandler, tracksShowing }) => {
         .dot {
           transform: translateX(0);
           opacity: 1;
-          transition: all 0.2s ease;
+          transition: all 100ms ease;
         }
 
         .dot.middle {
-          transition-delay: 75ms;
+          transition-delay: 25ms;
         }
 
         .dot.top {
-          transition-delay: 150ms;
+          transition-delay: 100ms;
         }
 
         .dot.animate {

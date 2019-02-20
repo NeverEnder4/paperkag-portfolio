@@ -16,14 +16,14 @@ const videos = [
   {
     src: 'https://apettigrew.imgix.net/static/videos/sunday-opt.mp4',
     type: 'video/mp4',
-    title: 'YO! Episode 2',
+    title: 'Sunday',
     artist: 'Kenyatta Barnette',
     genre: 'Animation',
   },
   {
     src: 'https://apettigrew.imgix.net/static/videos/television-opt.mp4',
     type: 'video/mp4',
-    title: 'YO! Episode 3',
+    title: 'Awaken',
     artist: 'Kenyatta Barnette',
     genre: 'Animation',
   },
