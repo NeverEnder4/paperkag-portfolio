@@ -4,7 +4,7 @@ import '../../../static/fonts/Sega.css';
 
 const HeadTag = () => (
   <Head>
-    <title>PaperKAG Portfolio</title>
+    <title>PaperKAG.com || Killin Art Galleries Worldwide!</title>
   </Head>
 );
 

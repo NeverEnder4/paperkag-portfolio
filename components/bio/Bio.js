@@ -8,9 +8,8 @@ const Bio = () => {
           alt="avatar"
         />
         <h1 className="name">Kenyatta Furious Barnette</h1>
-        <h2 className="location">Los Angeles</h2>
-        <p className="center ph3">Founder and art director of PaperKAG.</p>
-        <p className="center ph3">Based Out of Los Angeles, Ca.</p>
+        <p className="center ph3">Founder and art director of PaperKAG</p>
+        <p className="center ph3">Based Out of Los Angeles, Ca</p>
         <p className="center ph3">Killin Art Galleries World Wide!</p>
       </div>
       <style jsx>{`
@@ -24,13 +23,7 @@ const Bio = () => {
 
         .bio .name {
           font-size: 1.25rem;
-        }
-
-        .bio .location {
-          font-size: 0.875rem;
-          letter-spacing: 0.1em;
-          font-weight: 200;
-          text-transform: uppercase;
+          font-family: 'Helvetica', 'Sans-Serif';
         }
 
         .bio p {
@@ -72,12 +65,9 @@ const Bio = () => {
           }
 
           .bio .name {
-            font-size: 1.45rem;
+            font-size: 1.75rem;
           }
 
-          .bio .location {
-            font-size: 1rem;
-          }
           .bio p {
             max-width: 40em;
             font-size: 1.2rem;

@@ -16,7 +16,11 @@ export default class MyDocument extends Document {
 
           <meta
             name="description"
-            content="The official portfolio of Kenyata Barnes."
+            content="The official portfolio of Kenyata Furious Barnette. PaperKag - Art, Animation, Skateboarding and Modeling - Killing Art Galleries World Wide!"
+          />
+          <meta
+            name="keywords"
+            content="paperkag, Kenyatta Furious Barnette, YO, paperkag la, Kenyatta Barnette, animator, painter, artist"
           />
           <link
             rel="apple-touch-icon"
